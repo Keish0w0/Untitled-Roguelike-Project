@@ -63,7 +63,6 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		can_take_damage = false
 		dmg_cooldown.start()
 		%Collision.set_deferred("disabled", true)
-
 	var array = [hurtbox.get_overlapping_bodies()]
 	if array:
 		take_damage(body.damage)
