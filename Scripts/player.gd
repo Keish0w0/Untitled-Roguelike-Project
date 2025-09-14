@@ -14,7 +14,7 @@ var health: float:
 		%Health.value = value
 
 ####### SHIKO EDIT
-var is_invulneable: bool = false
+var is_invulnerable: bool = false
 var damaged_enemies := {}
 
 ##DASH
@@ -55,7 +55,7 @@ func take_damage(amount):
 	print(health)
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if is_invulneable:
+	if is_invulnerable:
 		return
 
 	if body in damaged_enemies:
