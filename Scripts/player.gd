@@ -54,10 +54,7 @@ func take_damage(amount):
 	print(health)
 
 
-
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-<<<<<<< HEAD
-	
 	if not can_take_damage:
 		return
 
@@ -66,13 +63,12 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		can_take_damage = false
 		dmg_cooldown.start()
 		%Collision.set_deferred("disabled", true)
-=======
+
 	var array = [hurtbox.get_overlapping_bodies()]
 	if array:
 		take_damage(body.damage)
 	dmg_cooldown.start()
 	%Collision.set_deferred("disabled", true)
->>>>>>> parent of 1f7eb4b (InDev 20251409-2)
 
 func _on_damage_cooldown_timeout() -> void:
 	can_take_damage = true
