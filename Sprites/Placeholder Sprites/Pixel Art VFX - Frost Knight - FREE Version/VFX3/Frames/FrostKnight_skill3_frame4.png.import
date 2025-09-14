@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bpm7jb80h1vfh"
+path="res://.godot/imported/FrostKnight_skill3_frame4.png-a6f3af6905c824e99abe4e4e0707c56b.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Sprites/Placeholder Sprites/Pixel Art VFX - Frost Knight - FREE Version/VFX3/Frames/FrostKnight_skill3_frame4.png"
+dest_files=["res://.godot/imported/FrostKnight_skill3_frame4.png-a6f3af6905c824e99abe4e4e0707c56b.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

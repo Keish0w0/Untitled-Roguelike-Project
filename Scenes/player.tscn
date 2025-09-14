@@ -1,0 +1,130 @@
+[gd_scene load_steps=20 format=3 uid="uid://x84vm6f4d0q3"]
+
+[ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/player.gd" id="1_o0f8b"]
+[ext_resource type="Texture2D" uid="uid://b3tehdseqig52" path="res://Sprites/Placeholder Sprites/PixelKeisha-Sheet.png" id="2_3smsa"]
+[ext_resource type="Texture2D" uid="uid://cbtyb0iggpvhc" path="res://Sprites/Placeholder Sprites/PixelKeisha - Run-Sheet.png" id="3_8erm5"]
+[ext_resource type="Script" uid="uid://d0d7iiw73mo4c" path="res://Scripts/state_machine.gd" id="4_ajo0r"]
+[ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/idle.gd" id="4_ons1q"]
+[ext_resource type="Script" uid="uid://3t1qmjx36l7w" path="res://Scripts/running.gd" id="5_ajo0r"]
+[ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/dash.gd" id="6_flf3p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
+atlas = ExtResource("2_3smsa")
+region = Rect2(0, 0, 36, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
+atlas = ExtResource("2_3smsa")
+region = Rect2(36, 0, 36, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
+atlas = ExtResource("2_3smsa")
+region = Rect2(0, 38, 36, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("2_3smsa")
+region = Rect2(36, 38, 36, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("3_8erm5")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
+atlas = ExtResource("3_8erm5")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4iuc"]
+atlas = ExtResource("3_8erm5")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
+atlas = ExtResource("3_8erm5")
+region = Rect2(0, 38, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
+atlas = ExtResource("3_8erm5")
+region = Rect2(38, 38, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igrcy"]
+atlas = ExtResource("3_8erm5")
+region = Rect2(76, 38, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fcng2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ek2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gymyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2lt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukyrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dp3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4iuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd4e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqcod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igrcy")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5hbr"]
+radius = 6.6
+height = 26.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_o0f8b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fcng2")
+animation = &"running"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_q5hbr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_ajo0r")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_ons1q")
+
+[node name="Running" type="Node" parent="StateMachine"]
+script = ExtResource("5_ajo0r")
+
+[node name="Dash" type="Node" parent="StateMachine"]
+script = ExtResource("6_flf3p")
+
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
