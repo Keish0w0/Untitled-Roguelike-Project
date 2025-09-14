@@ -13,9 +13,6 @@ var health: float:
 		health = value
 		%Health.value = value
 
-####### SHIKO EDIT
-var can_take_damage: bool = true
-
 ##DASH
 @onready var dash_cooldown = $DashCooldown
 var can_dash = true
@@ -27,7 +24,6 @@ var input = Vector2.ZERO
 @onready var anim_sprite = $Player
 
 @onready var dmg_cooldown = $DamageCooldown
-@onready var hurtbox = $Hurtbox
 
 func _ready() -> void:
 	health = max_health
@@ -53,22 +49,10 @@ func take_damage(amount):
 	health -= amount
 	print(health)
 
-
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if not can_take_damage:
-		return
-
-	if body.has_method("damage"):
-		take_damage(body.damage)
-		can_take_damage = false
-		dmg_cooldown.start()
-		%Collision.set_deferred("disabled", true)
-	var array = [hurtbox.get_overlapping_bodies()]
-	if array:
-		take_damage(body.damage)
+	take_damage(body.damage)
 	dmg_cooldown.start()
 	%Collision.set_deferred("disabled", true)
 
 func _on_damage_cooldown_timeout() -> void:
-	can_take_damage = true
-	%Collision.set_deffered("disabled", false)
+	%Collision.set_deferred("disabled", false)
