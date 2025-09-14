@@ -5,6 +5,8 @@ extends Node2D
 
 @export var distance: float = 200
 
+@export var enemy_types: Array[Enemy]
+
 var minute: int:
 	set(value):
 		minute = value
@@ -13,14 +15,15 @@ var minute: int:
 var second: int:
 	set(value):
 		second = value
-		if second >= 60:
-			second -= 60
+		if second >= 59:
+			second -= 59
 			minute += 1
 		%Second.text = str(value).lpad(2, '0')
 
 func spawn(pos: Vector2):
 	var enemy_instance = enemy.instantiate()
 	
+	enemy_instance.type = enemy_types[min(minute, enemy_types.size()-1)]
 	enemy_instance.position = pos
 	enemy_instance.player_ref = player_ref
 	
@@ -36,3 +39,7 @@ func amount(number: int = 1):
 func _on_timer_timeout() -> void:
 	second += 1
 	amount(second % 10)
+
+func _on_pattern_timeout() -> void:
+	for i in range(75):
+		spawn(get_random_pos())

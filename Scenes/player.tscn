@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://x84vm6f4d0q3"]
+[gd_scene load_steps=22 format=3 uid="uid://x84vm6f4d0q3"]
 
 [ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/player.gd" id="1_o0f8b"]
 [ext_resource type="Texture2D" uid="uid://b3tehdseqig52" path="res://Sprites/Placeholder Sprites/PixelKeisha-Sheet.png" id="2_3smsa"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/idle.gd" id="4_ons1q"]
 [ext_resource type="Script" uid="uid://3t1qmjx36l7w" path="res://Scripts/running.gd" id="5_ajo0r"]
 [ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/dash.gd" id="6_flf3p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("3_8erm5")
+region = Rect2(76, 0, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
 atlas = ExtResource("2_3smsa")
@@ -52,6 +56,14 @@ region = Rect2(76, 38, 38, 38)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f1ek2")
 }, {
 "duration": 1.0,
@@ -95,12 +107,14 @@ animations = [{
 radius = 6.6
 height = 26.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3smsa"]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_o0f8b")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Player" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fcng2")
-animation = &"running"
+animation = &"dash"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -127,4 +141,26 @@ script = ExtResource("6_flf3p")
 wait_time = 0.5
 one_shot = true
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="Hurtbox"]
+unique_name_in_owner = true
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_3smsa")
+debug_color = Color(0.99956, 0, 0.109055, 0.42)
+
+[node name="Health" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -11.0
+offset_top = -23.0
+offset_right = 11.0
+offset_bottom = -19.0
+show_percentage = false
+
+[node name="DamageCooldown" type="Timer" parent="."]
+
 [connection signal="timeout" from="DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
