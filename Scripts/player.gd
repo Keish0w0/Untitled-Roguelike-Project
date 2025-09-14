@@ -57,7 +57,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if not can_take_damage:
 		return
 
-	if body.has_method("damage):
+	if body.has_method("damage"):
 		take_damage(body.damage)
 		can_take_damage = false
 		dmg_cooldown.start()
