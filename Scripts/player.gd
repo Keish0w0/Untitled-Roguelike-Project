@@ -13,24 +13,22 @@ var health: float:
 		health = value
 		%Health.value = value
 
-## DASH
+##DASH
 @onready var dash_cooldown = $DashCooldown
 var can_dash = true
 
-## PLAYER INPUT
+##PLAYER INPUT
 var input = Vector2.ZERO
 
-## PLAYER ANIMATION
+##PLAYER ANIMATION
 @onready var anim_sprite = $Player
 
-## DAMAGE CONTROL
 @onready var dmg_cooldown = $DamageCooldown
-var can_take_damage: bool = true   # <--- NEW
 
 func _ready() -> void:
 	health = max_health
 
-# MOVEMENT
+#MOVEMENT SCRIPT
 func _physics_process(delta: float) -> void:
 	input = get_input()
 	var lerp_weight = delta * (accel if input else friction)
@@ -52,15 +50,9 @@ func take_damage(amount):
 	print(health)
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if not can_take_damage:
-		return
-	
-	if body.has_method("damage") or body.has_variable("damage"):
-		take_damage(body.damage)
-		can_take_damage = false
-		dmg_cooldown.start()
-		%Collision.set_deferred("disabled", true)
+	take_damage(body.damage)
+	dmg_cooldown.start()
+	%Collision.set_deferred("disabled", true)
 
 func _on_damage_cooldown_timeout() -> void:
-	can_take_damage = true
 	%Collision.set_deferred("disabled", false)
