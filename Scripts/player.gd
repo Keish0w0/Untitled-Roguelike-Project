@@ -54,9 +54,7 @@ func take_damage(amount):
 	print(health)
 
 
-
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	
 	if not can_take_damage:
 		return
 
