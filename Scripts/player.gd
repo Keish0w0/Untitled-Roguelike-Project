@@ -13,6 +13,10 @@ var health: float:
 		health = value
 		%Health.value = value
 
+####### SHIKO EDIT
+var is_invulneable: bool = false
+var damaged_enemies := {}
+
 ##DASH
 @onready var dash_cooldown = $DashCooldown
 var can_dash = true
@@ -51,9 +55,21 @@ func take_damage(amount):
 	print(health)
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	take_damage(body.damage)
-	dmg_cooldown.start()
-	%Collision.set_deferred("disabled", true)
+	if is_invulneable:
+		return
+
+	if body in damaged_enemies:
+		return
+
+	if body.has_method("damage"):
+		take_damage(body.damage)
+		damaged_enemies[body] = true
+
+		is_invulnerable = true
+		dmg_cooldown.start()
+		%Collision.set_deffered("disbaled", true)
 
 func _on_damage_cooldown_timeout() -> void:
+	is_invulnerable = false
+	damaged_enemies.clear()
 	%Collision.set_deferred("disabled", false)
