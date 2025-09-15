@@ -38,8 +38,6 @@ func _physics_process(delta: float) -> void:
 	var lerp_weight = delta * (accel if input else friction)
 	velocity = velocity.lerp(input * max_speed, lerp_weight)
 	
-	print(can_dash)
-	
 	flip_sprite()
 	move_and_slide()
 

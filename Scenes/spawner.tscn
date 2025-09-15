@@ -33,7 +33,6 @@ layout_mode = 2
 text = "00"
 
 [node name="Timer" type="Timer" parent="UI"]
-wait_time = 2.0
 autostart = true
 
 [node name="Pattern" type="Timer" parent="UI"]
