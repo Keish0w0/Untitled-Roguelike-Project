@@ -107,14 +107,16 @@ animations = [{
 radius = 6.6
 height = 26.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3smsa"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3smsa"]
+radius = 6.0
+height = 24.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_o0f8b")
 
 [node name="Player" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fcng2")
-animation = &"dash"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
@@ -147,8 +149,8 @@ collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="Hurtbox"]
 unique_name_in_owner = true
-position = Vector2(0, 8)
-shape = SubResource("CircleShape2D_3smsa")
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_3smsa")
 debug_color = Color(0.99956, 0, 0.109055, 0.42)
 
 [node name="Health" type="ProgressBar" parent="."]

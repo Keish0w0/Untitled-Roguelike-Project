@@ -1,7 +1,7 @@
 extends PlayerState
 
 func enter(previous_state_path: String, data := {}) -> void:
-	print("Current State: IDLE")
+	#print("Current State: IDLE")
 	
 	#IDLE ANIMATION
 	player.anim_sprite.play("idle")
