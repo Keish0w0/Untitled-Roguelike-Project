@@ -15,7 +15,9 @@ var health: float:
 
 ##DASH
 @onready var dash_cooldown = $DashCooldown
+@onready var i_frames = $iFrames
 var can_dash = true
+var is_dashing = false
 
 ##PLAYER INPUT
 var input = Vector2.ZERO
@@ -46,8 +48,9 @@ func flip_sprite():
 	anim_sprite.flip_h = input.x < 0
 
 func take_damage(amount):
-	health -= amount
-	print(health)
+	if !is_dashing:
+		health -= amount
+	print(health) 
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	take_damage(body.damage)

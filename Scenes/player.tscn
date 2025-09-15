@@ -161,6 +161,10 @@ show_percentage = false
 
 [node name="DamageCooldown" type="Timer" parent="."]
 
+[node name="iFrames" type="Timer" parent="."]
+wait_time = 0.35
+
 [connection signal="timeout" from="DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
+[connection signal="timeout" from="iFrames" to="StateMachine/Dash" method="_on_i_frames_timeout"]
