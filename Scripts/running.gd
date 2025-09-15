@@ -4,6 +4,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	print("Current State: RUNNING")
 
 func physics_update(_delta: float) -> void:
+	#RUNNING ANIMATION
 	if player.velocity:
 		player.anim_sprite.play("running")
 		player.anim_sprite.speed_scale = (player.velocity/player.max_speed).distance_to(Vector2.ZERO) + 0.5

@@ -6,8 +6,8 @@ class_name Player extends CharacterBody2D
 @export var friction = 8
 @export var dash_speed = max_speed * 3.5
 
+##HEALTH
 @export var max_health: float = 5
-
 var health: float:
 	set(value):
 		health = value
@@ -25,7 +25,9 @@ var input = Vector2.ZERO
 ##PLAYER ANIMATION
 @onready var anim_sprite = $Player
 
+##OTHER REFERENCES
 @onready var dmg_cooldown = $DamageCooldown
+@onready var collision = $PlayerCollision
 
 func _ready() -> void:
 	health = max_health
@@ -43,6 +45,7 @@ func get_input():
 	input.x = int(Input.get_action_strength("right")) - int(Input.get_action_strength("left"))
 	input.y = int(Input.get_action_strength("down")) - int(Input.get_action_strength("up"))
 	return input.normalized()
+#MOVEMENT SCRIPT
 
 func flip_sprite():
 	anim_sprite.flip_h = input.x < 0
@@ -52,6 +55,7 @@ func take_damage(amount):
 		health -= amount
 	print(health) 
 
+#TAKE DAMAGE IF ENEMY TOUCHED PLAYER
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	take_damage(body.damage)
 	dmg_cooldown.start()

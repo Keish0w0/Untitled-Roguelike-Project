@@ -117,7 +117,7 @@ sprite_frames = SubResource("SpriteFrames_fcng2")
 animation = &"dash"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_q5hbr")
 
@@ -162,7 +162,7 @@ show_percentage = false
 [node name="DamageCooldown" type="Timer" parent="."]
 
 [node name="iFrames" type="Timer" parent="."]
-wait_time = 0.35
+wait_time = 0.25
 
 [connection signal="timeout" from="DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
