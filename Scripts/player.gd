@@ -8,10 +8,7 @@ class_name Player extends CharacterBody2D
 
 ##HEALTH
 @export var max_health: float = 5
-var health: float:
-	set(value):
-		health = value
-		%Health.value = value
+var health
 
 ##DASH
 @onready var dash_cooldown = $DashCooldown

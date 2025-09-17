@@ -153,14 +153,6 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_3smsa")
 debug_color = Color(0.99956, 0, 0.109055, 0.42)
 
-[node name="Health" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-offset_left = -11.0
-offset_top = -23.0
-offset_right = 11.0
-offset_bottom = -19.0
-show_percentage = false
-
 [node name="DamageCooldown" type="Timer" parent="."]
 wait_time = 1.5
 
