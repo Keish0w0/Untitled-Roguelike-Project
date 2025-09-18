@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpk7qppnvi43h"]
 
-[ext_resource type="PackedScene" uid="uid://bigqx64ccche" path="res://Scenes/spawner.tscn" id="1_go701"]
-[ext_resource type="PackedScene" uid="uid://x84vm6f4d0q3" path="res://Scenes/player.tscn" id="2_go701"]
+[ext_resource type="PackedScene" uid="uid://bigqx64ccche" path="res://Scenes/Functions/spawner.tscn" id="1_yp2ti"]
+[ext_resource type="PackedScene" uid="uid://x84vm6f4d0q3" path="res://Scenes/Characters/player.tscn" id="2_3rhlx"]
 
 [sub_resource type="GDScript" id="GDScript_a02cp"]
 script/source = "extends Node2D
@@ -21,7 +21,7 @@ offset_right = 2784.0
 offset_bottom = 1701.0
 color = Color(0.367644, 0.709712, 0.260342, 1)
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("1_go701")]
+[node name="Spawner" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("1_yp2ti")]
 player_ref = NodePath("../Player")
 
-[node name="Player" parent="." instance=ExtResource("2_go701")]
+[node name="Player" parent="." instance=ExtResource("2_3rhlx")]

@@ -1,4 +1,4 @@
-extends PlayerState
+class_name Idle extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	#print("Current State: IDLE")

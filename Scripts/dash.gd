@@ -1,4 +1,4 @@
-extends PlayerState
+class_name Dash extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	#print("Current State: DASH")
@@ -15,11 +15,11 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	player.dash_cooldown.start()
 	
 	#COLLISION
-	player.collision.set_deferred("disabled", true)
+	#player.collision.set_deferred("disabled", true)
 	
 	#DASH SCRIPT
 	player.velocity = player.velocity.lerp(player.input * player.dash_speed, 1)
-	
+	"""
 	#STAMINA
 	player.stamina -= player.dash_stamina
 	player.stamina_regen = false
@@ -27,13 +27,13 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 		player.stamina = 0
 	print("Stamina: " + str(player.stamina))
 	player.stamina_cooldown.start()
-
+	"""
 func _dash_cooldown_timeout() -> void:
 	player.can_dash = true
 	
 func _on_i_frames_timeout() -> void:
 	player.is_dashing = false
-	player.collision.set_deferred("disabled", false)
+	#player.collision.set_deferred("disabled", false)
 	
 	#STATE TRANSITION
 	if player.input == Vector2.ZERO:

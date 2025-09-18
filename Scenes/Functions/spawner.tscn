@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bigqx64ccche"]
 
 [ext_resource type="Script" uid="uid://ce4acmyygiwet" path="res://Scripts/spawner.gd" id="1_mdv8j"]
-[ext_resource type="PackedScene" uid="uid://dm5p7g3m8en0t" path="res://Scenes/basic_enemy.tscn" id="2_xhbpr"]
+[ext_resource type="PackedScene" uid="uid://dm5p7g3m8en0t" path="res://Scenes/Characters/basic_enemy.tscn" id="2_xhbpr"]
 [ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/enemy_type.gd" id="3_2ydn3"]
 [ext_resource type="Resource" uid="uid://ceehndmqdkyny" path="res://Resources/slime.tres" id="4_f333s"]
 [ext_resource type="Resource" uid="uid://7cvhk7mpvt01" path="res://Resources/deadbeat.tres" id="5_f333s"]
