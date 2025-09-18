@@ -127,6 +127,16 @@ shape = SubResource("CapsuleShape2D_q5hbr")
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="Hurtbox"]
+unique_name_in_owner = true
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_3smsa")
+debug_color = Color(0.99956, 0, 0.109055, 0.42)
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_ajo0r")
 
@@ -143,23 +153,25 @@ script = ExtResource("6_flf3p")
 wait_time = 0.5
 one_shot = true
 
-[node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="Collision" type="CollisionShape2D" parent="Hurtbox"]
-unique_name_in_owner = true
-position = Vector2(0, 6)
-shape = SubResource("CapsuleShape2D_3smsa")
-debug_color = Color(0.99956, 0, 0.109055, 0.42)
+[node name="StaminaCooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="DamageCooldown" type="Timer" parent="."]
 wait_time = 1.5
 
 [node name="iFrames" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.35
 
-[connection signal="timeout" from="DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
+[node name="Stamina" type="ProgressBar" parent="."]
+offset_left = -22.0
+offset_top = -13.0
+offset_right = -18.0
+offset_bottom = 13.0
+fill_mode = 3
+show_percentage = false
+
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
+[connection signal="timeout" from="StaminaCooldown" to="." method="_on_stamina_cooldown_timeout"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
 [connection signal="timeout" from="iFrames" to="StateMachine/Dash" method="_on_i_frames_timeout"]
