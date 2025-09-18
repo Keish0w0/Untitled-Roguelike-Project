@@ -7,8 +7,11 @@ class_name Player extends CharacterBody2D
 @export var dash_speed = max_speed * 3.5
 
 ##HEALTH
-@export var max_health: float = 5
+@export var max_health = 5
 var health
+
+@export var max_stamina = 100
+var stamina
 
 ##DASH
 @onready var dash_cooldown = $DashCooldown
@@ -54,9 +57,10 @@ func take_damage(amount):
 
 #TAKE DAMAGE IF ENEMY TOUCHED PLAYER
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	take_damage(body.damage)
-	dmg_cooldown.start()
-	%Collision.set_deferred("disabled", true)
+	if body.has_method("contact_damage"):
+		take_damage(body.damage)
+		dmg_cooldown.start()
+		%Collision.set_deferred("disabled", true)
 
 func _on_damage_cooldown_timeout() -> void:
 	%Collision.set_deferred("disabled", false)

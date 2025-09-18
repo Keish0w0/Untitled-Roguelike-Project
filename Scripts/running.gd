@@ -1,6 +1,6 @@
 class_name Running extends PlayerState
 
-func enter(previous_state_path: String, data := {}) -> void: pass
+func enter(_previous_state_path: String, _data := {}) -> void: pass
 	#print("Current State: RUNNING")
 
 func physics_update(_delta: float) -> void:

@@ -21,3 +21,5 @@ func _physics_process(delta: float) -> void:
 
 func flip_sprite():
 	$Sprite2D.flip_h = velocity.x < 0
+
+func contact_damage(): pass
