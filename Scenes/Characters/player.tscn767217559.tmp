@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://cbtyb0iggpvhc" path="res://Sprites/Placeholder Sprites/PixelKeisha - Run-Sheet.png" id="3_8erm5"]
 [ext_resource type="Script" uid="uid://d0d7iiw73mo4c" path="res://Scripts/state_machine.gd" id="4_ajo0r"]
 [ext_resource type="PackedScene" uid="uid://dw85gk414jek3" path="res://Scenes/Functions/hitbox_component.tscn" id="4_fcmex"]
-[ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/Player States/idle.gd" id="4_ons1q"]
-[ext_resource type="Script" uid="uid://3t1qmjx36l7w" path="res://Scripts/Player States/running.gd" id="5_ajo0r"]
+[ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/idle.gd" id="4_ons1q"]
+[ext_resource type="Script" uid="uid://3t1qmjx36l7w" path="res://Scripts/running.gd" id="5_ajo0r"]
 [ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Functions/health_component.tscn" id="5_fcmex"]
 [ext_resource type="PackedScene" uid="uid://7nkymcduj65m" path="res://Scenes/Functions/stamina_component.tscn" id="6_25bbb"]
-[ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/Player States/dash.gd" id="6_flf3p"]
+[ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/dash.gd" id="6_flf3p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("3_8erm5")
@@ -130,8 +130,7 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_25bbb")
 debug_color = Color(1, 0.0030717, 0.0718824, 0.42)
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("5_fcmex")]
-hitbox_component = NodePath("../HitboxComponent")
+[node name="HealthComponent" parent="." instance=ExtResource("5_fcmex")]
 
 [node name="StaminaComponent" parent="." node_paths=PackedStringArray("dash_state") instance=ExtResource("6_25bbb")]
 dash_state = NodePath("../StateMachine/Dash")
@@ -159,10 +158,9 @@ script = ExtResource("4_ons1q")
 script = ExtResource("5_ajo0r")
 dash_state = NodePath("../Dash")
 
-[node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("stamina_component", "hitbox_component")]
+[node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("stamina_component")]
 script = ExtResource("6_flf3p")
 stamina_component = NodePath("../../StaminaComponent")
-hitbox_component = NodePath("../../HitboxComponent")
 
 [node name="DashCooldown" type="Timer" parent="StateMachine/Dash"]
 wait_time = 0.5
@@ -170,7 +168,6 @@ one_shot = true
 
 [node name="iFrames" type="Timer" parent="StateMachine/Dash"]
 wait_time = 0.35
-one_shot = true
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)

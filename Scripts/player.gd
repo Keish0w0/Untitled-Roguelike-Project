@@ -26,9 +26,6 @@ func _physics_process(delta: float) -> void:
 	flip_sprite()
 	move_and_slide()
 
-#STAMINA REGEN
-func _process(delta) -> void: pass
-
 func get_input():
 	input.x = int(Input.get_action_strength("right")) - int(Input.get_action_strength("left"))
 	input.y = int(Input.get_action_strength("down")) - int(Input.get_action_strength("up"))

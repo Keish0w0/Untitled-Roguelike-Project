@@ -32,6 +32,14 @@ func _process(delta) -> void:
 
 func use_stamina(cost):
 	stamina -= cost
+	
+	stamina_regen = false
+	
+	if stamina <= 0:
+		stamina = 0
+	print("Stamina: " + str(stamina))
+	
+	stamina_cooldown.start()
 
 func _on_stamina_cooldown_timeout() -> void:
 	stamina_regen = true
