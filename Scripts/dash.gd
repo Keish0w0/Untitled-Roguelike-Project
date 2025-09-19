@@ -1,5 +1,9 @@
 class_name Dash extends PlayerState
 
+@export var stamina_component: StaminaComponent
+@onready var dash_cooldown = $DashCooldown
+@onready var i_frames = $iFrames
+
 func enter(_previous_state_path: String, _data := {}) -> void:
 	#print("Current State: DASH")
 	player.can_dash = false
@@ -9,31 +13,31 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	
 	#I-FRAMES
 	player.is_dashing = true
-	player.i_frames.start()
+	i_frames.start()
 	
 	#DASH COOLDOWN
-	player.dash_cooldown.start()
+	dash_cooldown.start()
 	
 	#COLLISION
-	#player.collision.set_deferred("disabled", true)
+	%Hitbox.set_deferred("disabled", true)
 	
 	#DASH SCRIPT
 	player.velocity = player.velocity.lerp(player.input * player.dash_speed, 1)
-	"""
+
 	#STAMINA
-	player.stamina -= player.dash_stamina
-	player.stamina_regen = false
-	if player.stamina <= 0:
-		player.stamina = 0
-	print("Stamina: " + str(player.stamina))
-	player.stamina_cooldown.start()
-	"""
+	stamina_component.use_stamina(player.dash_stamina)
+	stamina_component.stamina_regen = false
+	if stamina_component.stamina <= 0:
+		stamina_component.stamina = 0
+	print("Stamina: " + str(stamina_component.stamina))
+	stamina_component.stamina_cooldown.start()
+
 func _dash_cooldown_timeout() -> void:
 	player.can_dash = true
 	
 func _on_i_frames_timeout() -> void:
 	player.is_dashing = false
-	#player.collision.set_deferred("disabled", false)
+	%Hitbox.set_deferred("disabled", false)
 	
 	#STATE TRANSITION
 	if player.input == Vector2.ZERO:

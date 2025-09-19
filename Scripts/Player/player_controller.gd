@@ -1,5 +1,5 @@
 class_name PlayerController extends Node2D
-@onready var player = $".."
+
 @export_subgroup("Player Movement")
 @export var max_speed = 650
 @export var accel = 6

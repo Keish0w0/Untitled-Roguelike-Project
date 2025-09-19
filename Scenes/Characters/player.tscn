@@ -111,13 +111,13 @@ radius = 7.0
 height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5hbr"]
-radius = 7.0
+radius = 6.0
 height = 24.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_o0f8b")
 
-[node name="Player" type="AnimatedSprite2D" parent="."]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fcng2")
 animation = &"idle"
 autoplay = "idle"
@@ -127,9 +127,8 @@ collision_mask = 3
 script = ExtResource("2_fcmex")
 health_component = NodePath("../HealthComponent")
 
-[node name="Collision" type="CollisionShape2D" parent="HitboxComponent"]
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_3smsa")
 debug_color = Color(0.99956, 0, 0.109055, 0.42)
@@ -137,8 +136,23 @@ debug_color = Color(0.99956, 0, 0.109055, 0.42)
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("8_xo8ps")
 
-[node name="StaminaComponent" type="Node2D" parent="."]
+[node name="DamageCooldown" type="Timer" parent="HealthComponent"]
+wait_time = 1.5
+
+[node name="StaminaComponent" type="Node2D" parent="." node_paths=PackedStringArray("dash_state")]
 script = ExtResource("6_fcmex")
+dash_state = NodePath("../StateMachine/Dash")
+
+[node name="Stamina" type="ProgressBar" parent="StaminaComponent"]
+offset_left = -25.0
+offset_top = -13.0
+offset_right = -21.0
+offset_bottom = 13.0
+fill_mode = 3
+show_percentage = false
+
+[node name="StaminaCooldown" type="Timer" parent="StaminaComponent"]
+one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.6, 0.6)
@@ -153,36 +167,23 @@ script = ExtResource("4_ons1q")
 [node name="Running" type="Node" parent="StateMachine"]
 script = ExtResource("5_ajo0r")
 
-[node name="Dash" type="Node" parent="StateMachine"]
+[node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("stamina_component")]
 script = ExtResource("6_flf3p")
+stamina_component = NodePath("../../StaminaComponent")
 
-[node name="DashCooldown" type="Timer" parent="."]
+[node name="DashCooldown" type="Timer" parent="StateMachine/Dash"]
 wait_time = 0.5
 one_shot = true
 
-[node name="StaminaCooldown" type="Timer" parent="."]
-one_shot = true
-
-[node name="DamageCooldown" type="Timer" parent="."]
-wait_time = 1.5
-
-[node name="iFrames" type="Timer" parent="."]
+[node name="iFrames" type="Timer" parent="StateMachine/Dash"]
 wait_time = 0.35
-
-[node name="Stamina" type="ProgressBar" parent="."]
-offset_left = -25.0
-offset_top = -13.0
-offset_right = -21.0
-offset_bottom = 13.0
-fill_mode = 3
-show_percentage = false
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_q5hbr")
 
 [connection signal="body_entered" from="HitboxComponent" to="HitboxComponent" method="_on_body_entered"]
-[connection signal="timeout" from="DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
-[connection signal="timeout" from="StaminaCooldown" to="StaminaComponent" method="_on_stamina_cooldown_timeout"]
-[connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
-[connection signal="timeout" from="iFrames" to="StateMachine/Dash" method="_on_i_frames_timeout"]
+[connection signal="timeout" from="HealthComponent/DamageCooldown" to="HealthComponent" method="_on_damage_cooldown_timeout"]
+[connection signal="timeout" from="StaminaComponent/StaminaCooldown" to="StaminaComponent" method="_on_stamina_cooldown_timeout"]
+[connection signal="timeout" from="StateMachine/Dash/DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
+[connection signal="timeout" from="StateMachine/Dash/iFrames" to="StateMachine/Dash" method="_on_i_frames_timeout"]

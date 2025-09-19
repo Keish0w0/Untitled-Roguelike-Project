@@ -1,5 +1,7 @@
 class_name Running extends PlayerState
 
+@export var dash_state: Dash
+
 func enter(_previous_state_path: String, _data := {}) -> void: pass
 	#print("Current State: RUNNING")
 
