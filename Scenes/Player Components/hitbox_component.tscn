@@ -5,5 +5,3 @@
 [node name="HitboxComponent" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_v4wl1")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

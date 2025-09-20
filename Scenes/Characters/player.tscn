@@ -7,13 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dw85gk414jek3" path="res://Scenes/Player Components/hitbox_component.tscn" id="4_fcmex"]
 [ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/Player States/idle.gd" id="4_ons1q"]
 [ext_resource type="Script" uid="uid://3t1qmjx36l7w" path="res://Scripts/Player States/running.gd" id="5_ajo0r"]
-[ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Player Components/health_component.tscn" id="5_fcmex"]
+[ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/General Components/health_component.tscn" id="5_fcmex"]
 [ext_resource type="PackedScene" uid="uid://7nkymcduj65m" path="res://Scenes/Player Components/stamina_component.tscn" id="6_25bbb"]
 [ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/Player States/dash.gd" id="6_flf3p"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5hbr"]
-radius = 6.0
-height = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("3_8erm5")
@@ -114,12 +110,12 @@ animations = [{
 radius = 7.0
 height = 26.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5hbr"]
+radius = 6.0
+height = 24.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_o0f8b")
-
-[node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
-shape = SubResource("CapsuleShape2D_q5hbr")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fcng2")
@@ -134,8 +130,12 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_25bbb")
 debug_color = Color(1, 0.0030717, 0.0718824, 0.42)
 
+[node name="DamageCooldown" type="Timer" parent="HitboxComponent"]
+one_shot = true
+
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("5_fcmex")]
 hitbox_component = NodePath("../HitboxComponent")
+max_health = 10
 
 [node name="StaminaComponent" parent="." node_paths=PackedStringArray("dash_state") instance=ExtResource("6_25bbb")]
 dash_state = NodePath("../StateMachine/Dash")
@@ -176,5 +176,11 @@ one_shot = true
 wait_time = 0.35
 one_shot = true
 
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_q5hbr")
+
+[connection signal="body_entered" from="HitboxComponent" to="HitboxComponent" method="_on_body_entered"]
+[connection signal="timeout" from="HitboxComponent/DamageCooldown" to="HitboxComponent" method="_on_damage_cooldown_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/iFrames" to="StateMachine/Dash" method="_on_i_frames_timeout"]

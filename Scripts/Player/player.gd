@@ -11,6 +11,8 @@ class_name Player extends CharacterBody2D
 var can_dash = true
 var is_dashing = false
 
+var dmg_cooldown = false
+
 ##PLAYER INPUT
 var input = Vector2.ZERO
 
