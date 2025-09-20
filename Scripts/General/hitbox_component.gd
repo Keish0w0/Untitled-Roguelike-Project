@@ -15,8 +15,6 @@ func _on_body_entered(area: Node2D):
 
 func disable_collision():
 	$CollisionShape2D.set_deferred("disabled", true)
-	print("disabled")
 
 func enable_collision():
 	$CollisionShape2D.set_deferred("disabled", false)
-	print("enabled")

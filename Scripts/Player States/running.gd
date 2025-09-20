@@ -8,8 +8,8 @@ func enter(_previous_state_path: String, _data := {}) -> void: pass
 func physics_update(_delta: float) -> void:
 	#RUNNING ANIMATION
 	if player.velocity:
-		player.anim_sprite.play("running")
-		player.anim_sprite.speed_scale = (player.velocity/player.max_speed).distance_to(Vector2.ZERO) + 0.5
+		player.player_sprite.play("running")
+		player.player_sprite.speed_scale = (player.velocity/player.max_speed).distance_to(Vector2.ZERO) + 0.5
 
 	#STATE TRANSITION
 	if player.input == Vector2.ZERO:

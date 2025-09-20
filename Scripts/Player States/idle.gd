@@ -4,7 +4,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	#print("Current State: IDLE")
 	
 	#IDLE ANIMATION
-	player.anim_sprite.play("idle")
+	player.player_sprite.play("idle")
 
 func physics_update(_delta: float) -> void:
 	#STATE TRANSITION

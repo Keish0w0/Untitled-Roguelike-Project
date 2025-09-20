@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func damage(attack):
 	health -= attack
-	print(health) 
+	print(health)
 	
 	damage_cooldown()
 	

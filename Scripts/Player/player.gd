@@ -15,7 +15,7 @@ var is_dashing = false
 var input = Vector2.ZERO
 
 ##PLAYER ANIMATION
-@onready var anim_sprite = $PlayerSprite
+@onready var player_sprite = $PlayerSprite
 
 func _physics_process(delta: float) -> void:
 	#MOVEMENT SCRIPT
@@ -33,4 +33,4 @@ func get_input():
 #MOVEMENT SCRIPT
 
 func flip_sprite():
-	anim_sprite.flip_h = input.x < 0
+	player_sprite.flip_h = input.x < 0

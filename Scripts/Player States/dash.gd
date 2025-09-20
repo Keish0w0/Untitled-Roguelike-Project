@@ -11,7 +11,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	player.can_dash = false
 	
 	#DASH ANIMATION
-	player.anim_sprite.play("dash")
+	player.player_sprite.play("dash")
 	
 	#I-FRAMES
 	player.is_dashing = true
