@@ -10,10 +10,10 @@ var health
 
 func _ready() -> void:
 	health = max_health
-	print(health) 
+	print(health)
 
-func damage(attack):
-	health -= attack
+func damage(damage):
+	health -= damage
 	print(health)
 	
 	damage_cooldown()
@@ -28,4 +28,4 @@ func _on_damage_cooldown_timeout() -> void:
 	hitbox_component.enable_collision()
 
 func game_over():
-	print("You Died")
+	print("Game Over")

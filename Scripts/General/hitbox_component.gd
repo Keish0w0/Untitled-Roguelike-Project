@@ -3,14 +3,13 @@ class_name HitboxComponent extends Area2D
 @export var health_component: HealthComponent
 @onready var collision = $CollisionShape2D
 
-func damage(attack):
-	if health_component:
-		health_component.damage(attack)
-		disable_collision()
+func take_damage(attack):
+	health_component.damage(attack)
+	disable_collision()
 
-func _on_body_entered(area: Node2D):
-	if area.has_method("contact_damage"):
-		health_component.damage(area.damage)
+func _on_body_entered(body: Node2D):
+	if body.has_method("contact_damage"):
+		take_damage(body.damage)
 		disable_collision()
 
 func disable_collision():

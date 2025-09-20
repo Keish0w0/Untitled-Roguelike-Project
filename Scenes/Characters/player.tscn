@@ -4,12 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://b3tehdseqig52" path="res://Sprites/Placeholder Sprites/PixelKeisha-Sheet.png" id="2_3smsa"]
 [ext_resource type="Texture2D" uid="uid://cbtyb0iggpvhc" path="res://Sprites/Placeholder Sprites/PixelKeisha - Run-Sheet.png" id="3_8erm5"]
 [ext_resource type="Script" uid="uid://d0d7iiw73mo4c" path="res://Scripts/StateMachine/state_machine.gd" id="4_ajo0r"]
-[ext_resource type="PackedScene" uid="uid://dw85gk414jek3" path="res://Scenes/Components/hitbox_component.tscn" id="4_fcmex"]
+[ext_resource type="PackedScene" uid="uid://dw85gk414jek3" path="res://Scenes/Player Components/hitbox_component.tscn" id="4_fcmex"]
 [ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/Player States/idle.gd" id="4_ons1q"]
 [ext_resource type="Script" uid="uid://3t1qmjx36l7w" path="res://Scripts/Player States/running.gd" id="5_ajo0r"]
-[ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Components/health_component.tscn" id="5_fcmex"]
-[ext_resource type="PackedScene" uid="uid://7nkymcduj65m" path="res://Scenes/Components/stamina_component.tscn" id="6_25bbb"]
+[ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Player Components/health_component.tscn" id="5_fcmex"]
+[ext_resource type="PackedScene" uid="uid://7nkymcduj65m" path="res://Scenes/Player Components/stamina_component.tscn" id="6_25bbb"]
 [ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/Player States/dash.gd" id="6_flf3p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5hbr"]
+radius = 6.0
+height = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("3_8erm5")
@@ -110,12 +114,12 @@ animations = [{
 radius = 7.0
 height = 26.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5hbr"]
-radius = 6.0
-height = 24.0
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_o0f8b")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_q5hbr")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fcng2")
@@ -171,10 +175,6 @@ one_shot = true
 [node name="iFrames" type="Timer" parent="StateMachine/Dash"]
 wait_time = 0.35
 one_shot = true
-
-[node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
-shape = SubResource("CapsuleShape2D_q5hbr")
 
 [connection signal="timeout" from="StateMachine/Dash/DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/iFrames" to="StateMachine/Dash" method="_on_i_frames_timeout"]
