@@ -5,7 +5,7 @@ class_name StaminaComponent extends Node2D
 
 ##STAMINA
 @export var max_stamina = 100
-@export var stamina_regen_rate = 30
+@export var stamina_regen_val = 4.5
 @onready var stamina_cooldown = $StaminaCooldown
 
 var stamina:
@@ -18,9 +18,6 @@ func _ready() -> void:
 	stamina = max_stamina
 
 func _process(delta) -> void:
-	if stamina_regen == true:
-		stamina += stamina_regen_rate * delta
-	
 	if stamina >= max_stamina:
 		stamina = max_stamina
 		stamina_regen = false
@@ -43,3 +40,7 @@ func use_stamina(cost):
 
 func _on_stamina_cooldown_timeout() -> void:
 	stamina_regen = true
+
+func _on_stamina_timer_timeout() -> void:
+	if stamina_regen == true:
+		stamina += stamina_regen_val
