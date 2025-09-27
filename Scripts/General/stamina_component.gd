@@ -4,20 +4,20 @@ class_name StaminaComponent extends Node2D
 @export var dash_state: Dash
 
 ##STAMINA
-@export var max_stamina = 100
-@export var stamina_regen_val = 4.5
+@export var max_stamina : float = 100
+@export var stamina_regen_val : float = 4.5
 @onready var stamina_cooldown = $StaminaCooldown
 
 var stamina:
 	set(value):
 		stamina = value
 		$Stamina.value = value
-var stamina_regen = false
+var stamina_regen : bool = false
 
 func _ready() -> void:
 	stamina = max_stamina
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	if stamina >= max_stamina:
 		stamina = max_stamina
 		stamina_regen = false

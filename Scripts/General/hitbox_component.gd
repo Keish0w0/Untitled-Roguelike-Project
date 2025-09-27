@@ -4,7 +4,7 @@ class_name HitboxComponent extends Area2D
 @onready var collision = $CollisionShape2D
 @onready var dmg_cooldown = $DamageCooldown
 
-var cooldown_dmg = false
+var cooldown_dmg : bool = false
 
 func take_damage(attack):
 	health_component.damage(attack)

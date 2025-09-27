@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://cqetak8xdv1fl"]
 
 [node name="Weapon" type="Node2D"]
+
+[node name="MainWeapon" type="Node2D" parent="."]
+
+[node name="SubWeapon" type="Node2D" parent="."]

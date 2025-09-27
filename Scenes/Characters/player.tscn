@@ -1,15 +1,16 @@
-[gd_scene load_steps=25 format=3 uid="uid://x84vm6f4d0q3"]
+[gd_scene load_steps=26 format=3 uid="uid://x84vm6f4d0q3"]
 
 [ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/Player/player.gd" id="1_o0f8b"]
 [ext_resource type="Texture2D" uid="uid://b3tehdseqig52" path="res://Sprites/Placeholder Sprites/PixelKeisha-Sheet.png" id="2_3smsa"]
 [ext_resource type="Texture2D" uid="uid://cbtyb0iggpvhc" path="res://Sprites/Placeholder Sprites/PixelKeisha - Run-Sheet.png" id="3_8erm5"]
 [ext_resource type="Script" uid="uid://d0d7iiw73mo4c" path="res://Scripts/StateMachine/state_machine.gd" id="4_ajo0r"]
 [ext_resource type="PackedScene" uid="uid://dw85gk414jek3" path="res://Scenes/Player Components/hitbox_component.tscn" id="4_fcmex"]
-[ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/Player States/idle.gd" id="4_ons1q"]
-[ext_resource type="Script" uid="uid://3t1qmjx36l7w" path="res://Scripts/Player States/running.gd" id="5_ajo0r"]
+[ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/StateMachine/Player States/idle.gd" id="4_ons1q"]
+[ext_resource type="Script" uid="uid://3t1qmjx36l7w" path="res://Scripts/StateMachine/Player States/running.gd" id="5_ajo0r"]
 [ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/General Components/health_component.tscn" id="5_fcmex"]
 [ext_resource type="PackedScene" uid="uid://7nkymcduj65m" path="res://Scenes/Player Components/stamina_component.tscn" id="6_25bbb"]
-[ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/Player States/dash.gd" id="6_flf3p"]
+[ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/StateMachine/Player States/dash.gd" id="6_flf3p"]
+[ext_resource type="PackedScene" uid="uid://jyjftkxrxfs1" path="res://Scenes/Player Components/input_component.tscn" id="7_25bbb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("3_8erm5")
@@ -116,7 +117,6 @@ height = 20.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 0
 script = ExtResource("1_o0f8b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -141,7 +141,6 @@ one_shot = true
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("5_fcmex")]
 hitbox_component = NodePath("../HitboxComponent")
-max_health = 10
 
 [node name="StaminaComponent" parent="." node_paths=PackedStringArray("dash_state") instance=ExtResource("6_25bbb")]
 dash_state = NodePath("../StateMachine/Dash")
@@ -154,6 +153,8 @@ offset_bottom = 13.0
 fill_mode = 3
 show_percentage = false
 
+[node name="InputComponent" parent="." instance=ExtResource("7_25bbb")]
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_ajo0r")
 initial_state = NodePath("Idle")
@@ -161,9 +162,8 @@ initial_state = NodePath("Idle")
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_ons1q")
 
-[node name="Running" type="Node" parent="StateMachine" node_paths=PackedStringArray("dash_state")]
+[node name="Running" type="Node" parent="StateMachine"]
 script = ExtResource("5_ajo0r")
-dash_state = NodePath("../Dash")
 
 [node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("stamina_component", "hitbox_component")]
 script = ExtResource("6_flf3p")
