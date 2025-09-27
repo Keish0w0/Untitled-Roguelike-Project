@@ -2,15 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dkybn4ae3tv60" path="res://Scripts/General/stamina_component.gd" id="1_f7d52"]
 
-[node name="StaminaComponent" type="Node2D"]
+[node name="StaminaComponent" type="Node2D" node_paths=PackedStringArray("dash_state")]
 script = ExtResource("1_f7d52")
+dash_state = NodePath("")
 
 [node name="StaminaCooldown" type="Timer" parent="."]
 one_shot = true
 
-[node name="StaminaTimer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
 [connection signal="timeout" from="StaminaCooldown" to="." method="_on_stamina_cooldown_timeout"]
-[connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]

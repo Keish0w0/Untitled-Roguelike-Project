@@ -16,12 +16,5 @@ func damage(damage):
 	if health <= 0:
 		game_over()
 
-func heal(heal):
-	health += heal
-	print(health)
-
-	if health >= max_health:
-		health = max_health
-
 func game_over():
 	print("Game Over")
