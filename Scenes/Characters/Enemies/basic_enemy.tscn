@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm5p7g3m8en0t"]
+
+[ext_resource type="Script" uid="uid://i2awk86mfs0u" path="res://Scripts/basic_enemy.gd" id="1_udfau"]
+[ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/General Components/health_component.tscn" id="2_rdwev"]
+[ext_resource type="PackedScene" uid="uid://eiinqghhdwxr" path="res://Scenes/Characters/Enemies/enemy_hitbox_component.tscn" id="3_pa7x3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_htmx0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lal1l"]
+radius = 9.0
+
+[node name="basic_enemy" type="CharacterBody2D"]
+collision_layer = 6
+collision_mask = 4
+script = ExtResource("1_udfau")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_rdwev")]
+hitbox_component = NodePath("../EnemyHitboxComponent")
+
+[node name="EnemyHitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_pa7x3")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitboxComponent"]
+shape = SubResource("CircleShape2D_htmx0")
+debug_color = Color(0.997314, 0, 0.168662, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lal1l")
