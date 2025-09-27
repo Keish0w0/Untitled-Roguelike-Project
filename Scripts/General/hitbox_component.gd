@@ -22,7 +22,7 @@ func _on_damage_cooldown_timeout() -> void:
 	cooldown_dmg = false
 
 func disable_collision():
-	$CollisionShape2D.set_deferred("disabled", true)
+	collision.set_deferred("disabled", true)
 
 func enable_collision():
-	$CollisionShape2D.set_deferred("disabled", false)
+	collision.set_deferred("disabled", false)

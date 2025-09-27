@@ -117,6 +117,10 @@ height = 24.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_o0f8b")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fcng2")
 animation = &"idle"
@@ -147,10 +151,6 @@ offset_right = -21.0
 offset_bottom = 13.0
 fill_mode = 3
 show_percentage = false
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.6, 0.6)
-position_smoothing_enabled = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_ajo0r")
