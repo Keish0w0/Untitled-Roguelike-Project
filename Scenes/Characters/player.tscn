@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://x84vm6f4d0q3"]
+[gd_scene load_steps=27 format=3 uid="uid://x84vm6f4d0q3"]
 
 [ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/Player/player.gd" id="1_o0f8b"]
 [ext_resource type="Texture2D" uid="uid://b3tehdseqig52" path="res://Sprites/Placeholder Sprites/PixelKeisha-Sheet.png" id="2_3smsa"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://7nkymcduj65m" path="res://Scenes/Player Components/stamina_component.tscn" id="6_25bbb"]
 [ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/StateMachine/Player States/dash.gd" id="6_flf3p"]
 [ext_resource type="PackedScene" uid="uid://jyjftkxrxfs1" path="res://Scenes/Player Components/input_component.tscn" id="7_25bbb"]
+[ext_resource type="Script" uid="uid://hq88aq88yx80" path="res://Scenes/Characters/aim_component.gd" id="12_cueqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("3_8erm5")
@@ -181,6 +182,9 @@ one_shot = true
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_q5hbr")
+
+[node name="AimComponent" type="Node2D" parent="."]
+script = ExtResource("12_cueqf")
 
 [connection signal="body_entered" from="HitboxComponent" to="HitboxComponent" method="_on_body_entered"]
 [connection signal="timeout" from="HitboxComponent/DamageCooldown" to="HitboxComponent" method="_on_damage_cooldown_timeout"]
