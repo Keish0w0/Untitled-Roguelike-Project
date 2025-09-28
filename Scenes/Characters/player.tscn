@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://7nkymcduj65m" path="res://Scenes/Component Scenes/Player Components/stamina_component.tscn" id="6_25bbb"]
 [ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/StateMachine/Player States/dash.gd" id="6_flf3p"]
 [ext_resource type="PackedScene" uid="uid://jyjftkxrxfs1" path="res://Scenes/Component Scenes/Player Components/input_component.tscn" id="7_25bbb"]
-[ext_resource type="Script" uid="uid://hq88aq88yx80" path="res://Scripts/Components/Player Components/aim_component.gd" id="12_cueqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("3_8erm5")
@@ -116,6 +115,10 @@ height = 22.0
 radius = 6.0
 height = 20.0
 
+[sub_resource type="GDScript" id="GDScript_25bbb"]
+script/source = "extends Node2D
+"
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_o0f8b")
@@ -184,7 +187,7 @@ position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_q5hbr")
 
 [node name="AimComponent" type="Node2D" parent="."]
-script = ExtResource("12_cueqf")
+script = SubResource("GDScript_25bbb")
 
 [connection signal="body_entered" from="HitboxComponent" to="HitboxComponent" method="_on_body_entered"]
 [connection signal="timeout" from="HitboxComponent/DamageCooldown" to="HitboxComponent" method="_on_damage_cooldown_timeout"]
