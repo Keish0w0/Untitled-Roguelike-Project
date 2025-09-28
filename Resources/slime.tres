@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3 uid="uid://ceehndmqdkyny"]
 
-[ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/enemy_type.gd" id="1_y66mw"]
+[ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Enemy/enemy_type.gd" id="1_y66mw"]
 [ext_resource type="Texture2D" uid="uid://7pupj6tj1mcq" path="res://Sprites/Placeholder Sprites/sprites/characters/slime.png" id="2_k72m7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0ksj"]

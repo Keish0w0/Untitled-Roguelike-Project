@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://7cvhk7mpvt01"]
 
-[ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/enemy_type.gd" id="1_xm1mn"]
+[ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Enemy/enemy_type.gd" id="1_xm1mn"]
 [ext_resource type="Texture2D" uid="uid://dnrto2h8lv58q" path="res://Sprites/Placeholder Sprites/Deadbeat-export.png" id="2_qhs3b"]
 
 [resource]

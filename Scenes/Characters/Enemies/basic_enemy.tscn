@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dm5p7g3m8en0t"]
 
-[ext_resource type="Script" uid="uid://i2awk86mfs0u" path="res://Scripts/basic_enemy.gd" id="1_udfau"]
-[ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/General Components/health_component.tscn" id="2_rdwev"]
-[ext_resource type="PackedScene" uid="uid://dvnbf8jvk1qwj" path="res://Scenes/Characters/Enemies/enemy_hitbox_component.tscn" id="3_pa7x3"]
+[ext_resource type="Script" uid="uid://i2awk86mfs0u" path="res://Scripts/Enemy/basic_enemy.gd" id="1_udfau"]
+[ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Component Scenes/General Components/health_component.tscn" id="2_rdwev"]
+[ext_resource type="PackedScene" uid="uid://dvnbf8jvk1qwj" path="res://Scenes/Component Scenes/Enemy Components/enemy_hitbox_component.tscn" id="3_pa7x3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htmx0"]
 
