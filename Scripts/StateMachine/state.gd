@@ -1,3 +1,4 @@
+##ABSTRACT CLASS
 class_name State extends Node
 
 signal transition(next_state_path: String, data: Dictionary)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://x84vm6f4d0q3"]
+[gd_scene load_steps=26 format=3 uid="uid://x84vm6f4d0q3"]
 
 [ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/Player/player.gd" id="1_o0f8b"]
 [ext_resource type="Texture2D" uid="uid://b3tehdseqig52" path="res://Sprites/Placeholder Sprites/PixelKeisha-Sheet.png" id="2_3smsa"]
@@ -107,20 +107,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_25bbb"]
-radius = 7.0
-height = 22.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5hbr"]
 radius = 6.0
 height = 20.0
 
-[sub_resource type="GDScript" id="GDScript_25bbb"]
-script/source = "extends Node2D
-"
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_25bbb"]
+radius = 7.0
+height = 22.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_o0f8b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -132,13 +129,18 @@ sprite_frames = SubResource("SpriteFrames_fcng2")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_q5hbr")
+debug_color = Color(1, 1, 1, 0.41960785)
+
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_fcmex")]
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_25bbb")
-debug_color = Color(1, 0.0030717, 0.0718824, 0.42)
+debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
 [node name="DamageCooldown" type="Timer" parent="HitboxComponent"]
 one_shot = true
@@ -181,13 +183,6 @@ one_shot = true
 [node name="iFrames" type="Timer" parent="StateMachine/Dash"]
 wait_time = 0.35
 one_shot = true
-
-[node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
-shape = SubResource("CapsuleShape2D_q5hbr")
-
-[node name="AimComponent" type="Node2D" parent="."]
-script = SubResource("GDScript_25bbb")
 
 [connection signal="body_entered" from="HitboxComponent" to="HitboxComponent" method="_on_body_entered"]
 [connection signal="timeout" from="HitboxComponent/DamageCooldown" to="HitboxComponent" method="_on_damage_cooldown_timeout"]
