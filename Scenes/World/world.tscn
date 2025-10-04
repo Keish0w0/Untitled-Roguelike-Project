@@ -11,16 +11,6 @@ script/source = "extends Node2D
 scale = Vector2(5, 5)
 script = SubResource("GDScript_a02cp")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = -1498.0
-offset_top = -908.0
-offset_right = 2784.0
-offset_bottom = 1701.0
-color = Color(0.367644, 0.709712, 0.260342, 1)
-
 [node name="Spawner" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("1_yp2ti")]
 player_ref = NodePath("../Player")
 

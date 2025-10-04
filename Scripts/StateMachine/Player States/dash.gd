@@ -3,18 +3,14 @@ class_name Dash extends PlayerState
 @export var stamina_component: StaminaComponent
 @export var hitbox_component: HitboxComponent
 @onready var dash_cooldown = $DashCooldown
-@onready var i_frames = $iFrames
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	#print("Current State: DASH")
 	player.can_dash = false
+	player.is_dashing = true
 
 	#DASH ANIMATION
-	player.player_sprite.play("dash")
-
-	#I-FRAMES
-	player.is_dashing = true
-	i_frames.start()
+	player.anim.dodge()
 
 	#DASH COOLDOWN
 	dash_cooldown.start()
@@ -30,13 +26,14 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 
 func _dash_cooldown_timeout() -> void:
 	player.can_dash = true
-	
-func _on_i_frames_timeout() -> void:
-	player.is_dashing = false
 
+func end_i_frames():
 	if hitbox_component.cooldown_dmg != true:
 		hitbox_component.enable_collision()
 
+func end_dash():
+	player.is_dashing = false
+	
 	#STATE TRANSITION
 	if player.input == Vector2.ZERO:
 		transition.emit(IDLE)

@@ -15,13 +15,9 @@ var is_dashing : bool = false
 var dmg_cooldown : bool = false
 
 ##COMPONENT REFERENCES
-var input : Vector2
+@onready var anim = $AnimationManager
 
-##PLAYER ANIMATION
-@onready var player_sprite = $PlayerSprite
+var input : Vector2
 
 func _process(_delta: float) -> void:
 	input = $InputComponent.movement
-
-func flip_sprite():
-	player_sprite.flip_h = input.x < 0
