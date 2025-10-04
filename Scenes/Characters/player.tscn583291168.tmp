@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://7nkymcduj65m" path="res://Scenes/Component Scenes/Player Components/stamina_component.tscn" id="6_25bbb"]
 [ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/StateMachine/Player States/dash.gd" id="6_flf3p"]
 [ext_resource type="PackedScene" uid="uid://jyjftkxrxfs1" path="res://Scenes/Component Scenes/Player Components/input_component.tscn" id="7_25bbb"]
-[ext_resource type="PackedScene" uid="uid://jpwg0x2qy572" path="res://Scenes/Component Scenes/Player Components/movement_component.tscn" id="8_cueqf"]
+[ext_resource type="Script" uid="uid://iqvap72vwegy" path="res://Scripts/Components/Player Components/movement_component.gd" id="8_cueqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("3_8erm5")
@@ -138,7 +138,7 @@ debug_color = Color(1, 1, 1, 0.41960785)
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_fcmex")]
 health_component = NodePath("../HealthComponent")
 
-[node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_25bbb")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
@@ -162,7 +162,8 @@ show_percentage = false
 
 [node name="InputComponent" parent="." instance=ExtResource("7_25bbb")]
 
-[node name="MovementComponent" parent="." instance=ExtResource("8_cueqf")]
+[node name="MovementComponent" type="Node2D" parent="."]
+script = ExtResource("8_cueqf")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_ajo0r")

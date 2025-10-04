@@ -1,7 +1,7 @@
 class_name HitboxComponent extends Area2D
 
 @export var health_component: HealthComponent
-@onready var collision = $CollisionShape2D
+@onready var hitbox = $Hitbox
 @onready var dmg_cooldown = $DamageCooldown
 
 var cooldown_dmg : bool = false
@@ -22,7 +22,7 @@ func _on_damage_cooldown_timeout() -> void:
 	cooldown_dmg = false
 
 func disable_collision():
-	collision.set_deferred("disabled", true)
+	hitbox.set_deferred("disabled", true)
 
 func enable_collision():
-	collision.set_deferred("disabled", false)
+	hitbox.set_deferred("disabled", false)
