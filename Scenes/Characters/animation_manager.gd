@@ -5,7 +5,7 @@ extends Node2D
 @onready var anim_player = $Sprite2D/AnimationPlayer
 @onready var player_sprite = $Sprite2D
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	flip_sprite()
 
 func flip_sprite():
