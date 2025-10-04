@@ -4,7 +4,8 @@ class_name Player extends CharacterBody2D
 @export var max_speed : float  = 650.0
 @export var accel : float  = 6.0
 @export var friction : float  = 8.0
-@export var dash_speed : float = max_speed * 3.5
+@export var dash : float = 2.5
+var dash_speed : float = max_speed * dash
 
 ##DASH
 @onready var dash_stamina : float = 25

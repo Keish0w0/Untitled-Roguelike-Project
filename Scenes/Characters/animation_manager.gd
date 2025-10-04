@@ -9,7 +9,8 @@ func _process(delta: float) -> void:
 	flip_sprite()
 
 func flip_sprite():
-	player_sprite.flip_h = player.input.x < 0
+	if player.input.x != 0:
+		player_sprite.flip_h = player.input.x < 0
 
 func idle(): anim_player.play("idle")
 func run(): anim_player.play("run")
