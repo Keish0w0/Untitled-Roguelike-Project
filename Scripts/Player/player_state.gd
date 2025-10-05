@@ -3,7 +3,7 @@ class_name PlayerState extends State
 const IDLE = "Idle"
 const RUNNING = "Running"
 const DASH = "Dash"
-const ATTACKING = "Attack"
+const HURT = "Hurt"
 
 var player: Player
 

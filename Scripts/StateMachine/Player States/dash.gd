@@ -31,10 +31,13 @@ func end_i_frames():
 	if hitbox_component.cooldown_dmg != true:
 		hitbox_component.enable_collision()
 
-func end_dash():
+func end_state():
 	player.is_dashing = false
 	
 	#STATE TRANSITION
 	if player.input == Vector2.ZERO:
 		transition.emit(IDLE)
 	else: transition.emit(RUNNING)
+
+func _took_damage() -> void:
+	transition.emit(HURT)
