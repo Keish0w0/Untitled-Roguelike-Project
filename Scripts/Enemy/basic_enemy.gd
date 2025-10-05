@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var player_ref: Player
 #@onready var anim_sprite = $AnimatedSprite2D
-var max_speed: float = 350
+var max_speed: float = 75
 var direction: Vector2
 var damage: float
 

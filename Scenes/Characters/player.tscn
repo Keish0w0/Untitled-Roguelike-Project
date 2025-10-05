@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://x84vm6f4d0q3"]
+[gd_scene load_steps=24 format=3 uid="uid://x84vm6f4d0q3"]
 
 [ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/Player/player.gd" id="1_o0f8b"]
+[ext_resource type="Texture2D" uid="uid://du7p01pbd2dla" path="res://Sprites/Player/Mistwinter_Staff.png" id="2_h1n2f"]
 [ext_resource type="Script" uid="uid://d2660oluygvli" path="res://Scripts/animation_manager.gd" id="2_xccyk"]
 [ext_resource type="Script" uid="uid://d0d7iiw73mo4c" path="res://Scripts/StateMachine/state_machine.gd" id="4_ajo0r"]
 [ext_resource type="PackedScene" uid="uid://dw85gk414jek3" path="res://Scenes/Component Scenes/Player Components/hitbox_component.tscn" id="4_fcmex"]
@@ -12,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://jyjftkxrxfs1" path="res://Scenes/Component Scenes/Player Components/input_component.tscn" id="7_25bbb"]
 [ext_resource type="PackedScene" uid="uid://jpwg0x2qy572" path="res://Scenes/Component Scenes/Player Components/movement_component.tscn" id="8_cueqf"]
 [ext_resource type="Texture2D" uid="uid://dqb4cdtajqubb" path="res://Sprites/Player/Keisha-Sheet.png" id="13_01b8d"]
-[ext_resource type="Script" uid="uid://c6lnff5grxip1" path="res://Scenes/Characters/hurt.gd" id="13_xccyk"]
+[ext_resource type="Script" uid="uid://c6lnff5grxip1" path="res://Scripts/StateMachine/Player States/hurt.gd" id="13_xccyk"]
 
 [sub_resource type="Animation" id="Animation_xccyk"]
 length = 0.001
@@ -171,13 +172,19 @@ motion_mode = 1
 script = ExtResource("1_o0f8b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.6, 0.6)
+process_mode = 3
+physics_interpolation_mode = 1
 position_smoothing_enabled = true
+
+[node name="MistwinterStaff" type="Sprite2D" parent="."]
+position = Vector2(10.5, 8.5)
+texture = ExtResource("2_h1n2f")
 
 [node name="AnimationManager" type="Node2D" parent="."]
 script = ExtResource("2_xccyk")
 
 [node name="PlayerSprite" type="Sprite2D" parent="AnimationManager"]
+position = Vector2(0, 0.5)
 texture = ExtResource("13_01b8d")
 hframes = 9
 vframes = 5
@@ -187,6 +194,7 @@ root_node = NodePath("../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_xccyk")
 }
+autoplay = "idle"
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)

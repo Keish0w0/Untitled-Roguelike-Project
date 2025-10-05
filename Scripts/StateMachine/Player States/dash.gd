@@ -28,8 +28,7 @@ func _dash_cooldown_timeout() -> void:
 	player.can_dash = true
 
 func end_i_frames():
-	if hitbox_component.cooldown_dmg != true:
-		hitbox_component.enable_collision()
+	hitbox_component.enable_collision()
 
 func end_state():
 	player.is_dashing = false
@@ -40,4 +39,5 @@ func end_state():
 	else: transition.emit(RUNNING)
 
 func _took_damage() -> void:
+	player.is_dashing = false
 	transition.emit(HURT)

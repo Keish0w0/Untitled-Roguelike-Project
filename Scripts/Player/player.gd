@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 @export_subgroup("Player Movement")
-@export var max_speed : float  = 650.0
+@export var max_speed : float  = 125.0
 @export var accel : float  = 6.0
 @export var friction : float  = 8.0
 @export var dash : float = 2.5
