@@ -13,6 +13,7 @@ radius = 9.0
 collision_layer = 6
 collision_mask = 4
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_udfau")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

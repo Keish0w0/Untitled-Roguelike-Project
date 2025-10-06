@@ -4,7 +4,7 @@ extends Node2D
 @export var player_ref: Player
 @export var enemy: PackedScene
 
-@export var distance: float = 200
+@export var distance: float = 275
 
 @export var enemy_types: Array[Enemy]
 
@@ -42,5 +42,5 @@ func _on_timer_timeout() -> void:
 	amount(second % 10)
 
 func _on_pattern_timeout() -> void:
-	for i in range(75):
+	for i in range(85):
 		spawn(get_random_pos())

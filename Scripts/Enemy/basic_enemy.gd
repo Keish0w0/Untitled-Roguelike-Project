@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 @export var player_ref: Player
-#@onready var anim_sprite = $AnimatedSprite2D
 var max_speed: float = 75
 var direction: Vector2
 var damage: float
+@onready var navigation: NavigationAgent2D = $NavigationAgent2D
 
 var type: Enemy:
 	set(value):
@@ -16,7 +16,6 @@ var type: Enemy:
 func _physics_process(delta: float) -> void:
 	velocity = velocity.lerp((player_ref.position - position).normalized() * max_speed, 1)
 	move_and_collide(velocity * delta)
-	
 	flip_sprite()
 
 func flip_sprite():

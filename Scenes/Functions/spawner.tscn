@@ -44,6 +44,7 @@ autostart = true
 
 [node name="Pattern" type="Timer" parent="UI"]
 wait_time = 10.0
+autostart = true
 
 [node name="Elite" type="Timer" parent="UI"]
 wait_time = 9.0
