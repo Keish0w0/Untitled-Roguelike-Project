@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://buu5a8iikjlo5"]
+
+[ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Enemy/enemy_type.gd" id="1_umif5"]
+[ext_resource type="Texture2D" uid="uid://ckk4m8segnj0b" path="res://Sprites/Placeholder Sprites/HoloSprites/Investi-Gator-Sheet.png" id="2_umif5"]
+
+[resource]
+script = ExtResource("1_umif5")
+title = "Investigator"
+texture = ExtResource("2_umif5")
+health = 100.0
+speed = 80.0

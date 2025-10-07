@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://cya3skon0amuf"]
+
+[ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Enemy/enemy_type.gd" id="1_ojp5l"]
+[ext_resource type="Texture2D" uid="uid://bhwfhsiw808oe" path="res://Sprites/Placeholder Sprites/HoloSprites/Hungry_Takodachi-Sheet.png" id="2_w6xcv"]
+
+[resource]
+script = ExtResource("1_ojp5l")
+title = "Takodachi"
+texture = ExtResource("2_w6xcv")
+health = 80.0
+speed = 40.0

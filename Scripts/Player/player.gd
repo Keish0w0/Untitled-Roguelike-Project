@@ -16,7 +16,7 @@ var is_dashing : bool = false
 var dmg_cooldown : bool = false
 
 ##COMPONENT REFERENCES
-@onready var anim = $AnimationManager
+@onready var anim = $PlayerAnimationComponent
 
 var input : Vector2
 

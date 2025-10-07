@@ -4,7 +4,7 @@ extends Node2D
 @export var player_ref: Player
 @export var enemy: PackedScene
 
-@export var distance: float = 275
+@export var distance: float = 300
 
 @export var enemy_types: Array[Enemy]
 

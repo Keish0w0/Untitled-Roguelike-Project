@@ -1,4 +1,4 @@
-extends Node2D
+class_name PlayerAnimationComponent extends Node2D
 
 ##REFERENCES
 @onready var player = $".."

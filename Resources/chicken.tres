@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://mudf6ltlun8d"]
+
+[ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Enemy/enemy_type.gd" id="1_i4gjm"]
+[ext_resource type="Texture2D" uid="uid://djvggutmrvsim" path="res://Sprites/Placeholder Sprites/HoloSprites/KFP_Employee-Sheet.png" id="2_je3w8"]
+
+[resource]
+script = ExtResource("1_i4gjm")
+title = "Chicken"
+texture = ExtResource("2_je3w8")
+health = 20.0
+damage = 1.0
+speed = 100.0
+metadata/_custom_type_script = "uid://j3jutiir7d85"
