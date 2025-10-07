@@ -62,8 +62,7 @@ func amount(number: int = 1):
 
 func _on_timer_timeout() -> void:
 	second += 1
-	%Second.text = str(second).lpad(2, '0')
-	%Minute.text = str(minute).lpad(2, '0')
+	%Clock.text = str(minute).lpad(2, '0') + " : " + str(second).lpad(2, '0') 
 	amount((minute % 10)+1) 
 
 func _on_pattern_timeout() -> void:
