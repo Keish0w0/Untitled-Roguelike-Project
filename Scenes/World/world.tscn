@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cpk7qppnvi43h"]
+[gd_scene load_steps=17 format=4 uid="uid://cpk7qppnvi43h"]
 
 [ext_resource type="Texture2D" uid="uid://dkis0ppr4ja5b" path="res://Sprites/Placeholder Sprites/sprites/tilesets/grass.png" id="1_vadfg"]
 [ext_resource type="PackedScene" uid="uid://bigqx64ccche" path="res://Scenes/Functions/spawner.tscn" id="1_yp2ti"]
@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://t5mb1okeuybq" path="res://Resources/shrimp.tres" id="6_y0d6x"]
 [ext_resource type="Resource" uid="uid://7cvhk7mpvt01" path="res://Resources/deadbeat.tres" id="7_ugf0j"]
 [ext_resource type="Resource" uid="uid://cya3skon0amuf" path="res://Resources/takodachi.tres" id="8_0ph6x"]
+[ext_resource type="Resource" uid="uid://mudf6ltlun8d" path="res://Resources/chicken.tres" id="9_ugf0j"]
+[ext_resource type="Resource" uid="uid://buu5a8iikjlo5" path="res://Resources/investigator.tres" id="10_0ph6x"]
 
 [sub_resource type="GDScript" id="GDScript_a02cp"]
 script/source = "extends Node2D
@@ -144,4 +146,4 @@ z_index = 1
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("1_yp2ti")]
 player_ref = NodePath("../Player")
-enemy_types = Array[ExtResource("5_fcotr")]([ExtResource("6_y0d6x"), ExtResource("7_ugf0j"), ExtResource("8_0ph6x")])
+enemy_types = Array[ExtResource("5_fcotr")]([ExtResource("6_y0d6x"), ExtResource("7_ugf0j"), ExtResource("8_0ph6x"), ExtResource("9_ugf0j"), ExtResource("10_0ph6x")])

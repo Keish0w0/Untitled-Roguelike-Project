@@ -31,7 +31,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_yt1oc"]
 resource_name = "death"
-length = 0.37500417
+length = 0.41667086
 step = 0.041666668
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -48,7 +48,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_dxpk4"]
 resource_name = "dodge"
-length = 0.70833755
+length = 0.7500042
 step = 0.041666668
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -113,7 +113,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_01b8d"]
 resource_name = "idle"
-length = 0.91667086
+length = 1.0000042
 loop_mode = 1
 step = 0.041666668
 tracks/0/type = "value"
@@ -131,7 +131,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_h1n2f"]
 resource_name = "run"
-length = 0.66667086
+length = 0.7500042
 loop_mode = 1
 step = 0.041666668
 tracks/0/type = "value"
@@ -159,11 +159,11 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5hbr"]
 radius = 6.0
-height = 12.0
+height = 14.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_25bbb"]
 radius = 7.0
-height = 14.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -192,7 +192,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_q5hbr")
 debug_color = Color(1, 1, 1, 0.41960785)
 
@@ -200,7 +200,7 @@ debug_color = Color(1, 1, 1, 0.41960785)
 health_component = NodePath("../HealthComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, 6)
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_25bbb")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
