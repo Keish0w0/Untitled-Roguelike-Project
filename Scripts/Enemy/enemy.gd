@@ -25,6 +25,9 @@ func check_seperation(_delta):
 	seperation = (player_ref.position - position).length()
 	if seperation >= 1000:
 		queue_free()
+	
+	if seperation < player_ref.nearest_enemy_distance:
+		player_ref.nearest_enemy = self
 
 func knockback_update(delta):
 	#MOVEMENT

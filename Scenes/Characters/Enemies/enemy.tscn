@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dm5p7g3m8en0t"]
 
-[ext_resource type="Script" uid="uid://i2awk86mfs0u" path="res://Scripts/Enemy/basic_enemy.gd" id="1_udfau"]
-[ext_resource type="Script" uid="uid://dlyuwr6hvswq1" path="res://Scripts/Components/General Components/animation_component.gd" id="2_hcq3k"]
-[ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Component Scenes/General Components/health_component.tscn" id="2_rdwev"]
-[ext_resource type="PackedScene" uid="uid://dvnbf8jvk1qwj" path="res://Scenes/Component Scenes/Enemy Components/enemy_hitbox_component.tscn" id="3_pa7x3"]
+[ext_resource type="Script" uid="uid://i2awk86mfs0u" path="res://Scripts/Enemy/enemy.gd" id="1_ofthe"]
+[ext_resource type="Script" uid="uid://dlyuwr6hvswq1" path="res://Scripts/Components/General Components/animation_component.gd" id="2_67xvd"]
+[ext_resource type="PackedScene" uid="uid://dvnbf8jvk1qwj" path="res://Scenes/Component Scenes/Enemy Components/enemy_hitbox_component.tscn" id="3_rmt0q"]
+[ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Component Scenes/General Components/health_component.tscn" id="4_lij3b"]
 
 [sub_resource type="Animation" id="Animation_ku28h"]
 length = 0.001
@@ -49,15 +49,15 @@ height = 20.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdwev"]
 height = 22.0
 
-[node name="basic_enemy" type="CharacterBody2D"]
+[node name="enemy" type="CharacterBody2D"]
 collision_layer = 6
 collision_mask = 4
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_udfau")
+script = ExtResource("1_ofthe")
 
 [node name="AnimationComponent" type="Node2D" parent="."]
-script = ExtResource("2_hcq3k")
+script = ExtResource("2_67xvd")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimationComponent"]
 hframes = 3
@@ -72,7 +72,7 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_udfau")
 debug_color = Color(1, 1, 1, 0.41960785)
 
-[node name="EnemyHitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_pa7x3")]
+[node name="EnemyHitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_rmt0q")]
 health_component = NodePath("../HealthComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="EnemyHitboxComponent"]
@@ -80,5 +80,5 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_rdwev")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_rdwev")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("4_lij3b")]
 hitbox_component = NodePath("../EnemyHitboxComponent")

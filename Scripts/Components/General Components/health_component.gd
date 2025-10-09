@@ -3,7 +3,7 @@ class_name HealthComponent extends Node2D
 signal took_damage
 
 @export var hitbox_component = Node2D
-@onready var player = $".."
+@onready var parent : CharacterBody2D = $".."
 
 ##HEALTH
 @export var max_health : float = 5
@@ -15,11 +15,11 @@ func _ready() -> void:
 func damage(dmg):
 	health -= dmg
 	print(health)
-	player.anim.hurt()
+	parent.anim.hurt()
 	emit_signal("took_damage")
 
 	if health <= 0:
-		game_over()
+		death()
 
 func regen(heal):
 	health += heal
@@ -28,5 +28,5 @@ func regen(heal):
 	if health >= max_health:
 		health = max_health
 
-func game_over():
+func death():
 	print("Game Over")

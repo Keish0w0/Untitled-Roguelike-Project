@@ -1,16 +1,16 @@
 class_name InputComponent extends Node2D
 
-signal main_attack
-signal sub_attack
+signal attack
+signal aim
 
 var movement = Vector2.ZERO
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("main_atk"):
-		emit_signal("main_attack")
+	if Input.is_action_just_pressed("attack"):
+		emit_signal("attack")
 	
-	if Input.is_action_just_pressed("sub_atk"):
-		emit_signal("sub_attack")
+	if Input.is_action_just_pressed("aim"):
+		emit_signal("aim")
 
 func _physics_process(_delta: float) -> void:
 	movement = get_input()

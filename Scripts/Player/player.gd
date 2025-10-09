@@ -17,13 +17,32 @@ var dmg_cooldown : bool = false
 
 ##COMPONENT REFERENCES
 @onready var anim = $PlayerAnimationComponent
+@onready var staff = $WeaponAim
 
+##INPUT 
 var input : Vector2
+
+##NEAREST ENEMY
+var nearest_enemy : CharacterBody2D
+var nearest_enemy_distance : float = INF
+
+var auto_aim : bool = true
 
 func _process(_delta: float) -> void:
 	input = $InputComponent.movement
+	
+	if nearest_enemy:
+		nearest_enemy_distance = nearest_enemy.seperation
+	else:
+		nearest_enemy_distance = INF
 
 func frame_freeze(time_scale: float, duration: float) -> void:
 	Engine.time_scale = time_scale
 	await get_tree().create_timer(duration, true, false, true).timeout
 	Engine.time_scale = 1.0
+
+func _on_aim() -> void:
+	if auto_aim == true:
+		auto_aim = false
+	elif auto_aim == false:
+		auto_aim = true

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://elafthlw6dmw"]
+
+[ext_resource type="Script" uid="uid://cpef7hid7p468" path="res://Scripts/projectile.gd" id="1_f8cdk"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yr2qt"]
+size = Vector2(5, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tl4hk"]
+radius = 3.0
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("1_f8cdk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_yr2qt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tl4hk")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-3, -3, 6, 6)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

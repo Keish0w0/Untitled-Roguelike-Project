@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du7p01pbd2dla"
-path="res://.godot/imported/Mistwinter_Staff.png-2afe7209b7c5ba3208ddbf4babbc461e.ctex"
+uid="uid://x3ugj3cijh3v"
+path="res://.godot/imported/Mistwinter-Staff_Icon.png-1ead45451562424462e9281d168b1fe1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/Mistwinter_Staff.png"
-dest_files=["res://.godot/imported/Mistwinter_Staff.png-2afe7209b7c5ba3208ddbf4babbc461e.ctex"]
+source_file="res://Sprites/Player/Weapons/Icons/Mistwinter-Staff_Icon.png"
+dest_files=["res://.godot/imported/Mistwinter-Staff_Icon.png-1ead45451562424462e9281d168b1fe1.ctex"]
 
 [params]
 
