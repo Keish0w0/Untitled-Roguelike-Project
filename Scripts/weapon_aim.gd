@@ -17,6 +17,8 @@ func aiming():
 	if $"..".auto_aim == true:
 		if $"..".nearest_enemy:
 			look_at($"..".nearest_enemy.position)
+		elif !$"..".nearest_enemy:
+			$".".rotation = 0
 	elif $"..".auto_aim == false:
 		look_at(mouse_pos)
 

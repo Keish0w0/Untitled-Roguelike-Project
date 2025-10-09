@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dm5p7g3m8en0t"]
+[gd_scene load_steps=11 format=3 uid="uid://dm5p7g3m8en0t"]
 
 [ext_resource type="Script" uid="uid://i2awk86mfs0u" path="res://Scripts/Enemy/enemy.gd" id="1_ofthe"]
 [ext_resource type="Script" uid="uid://dlyuwr6hvswq1" path="res://Scripts/Components/General Components/animation_component.gd" id="2_67xvd"]
+[ext_resource type="Texture2D" uid="uid://bjd0imxekjnc0" path="res://Sprites/Placeholder Sprites/HoloSprites/Shrimp-Sheet.png" id="3_67xvd"]
 [ext_resource type="PackedScene" uid="uid://dvnbf8jvk1qwj" path="res://Scenes/Component Scenes/Enemy Components/enemy_hitbox_component.tscn" id="3_rmt0q"]
 [ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Component Scenes/General Components/health_component.tscn" id="4_lij3b"]
 
@@ -60,6 +61,7 @@ script = ExtResource("1_ofthe")
 script = ExtResource("2_67xvd")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimationComponent"]
+texture = ExtResource("3_67xvd")
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationComponent/Sprite2D"]
@@ -82,9 +84,3 @@ debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("4_lij3b")]
 hitbox_component = NodePath("../EnemyHitboxComponent")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, 6)
-
-[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

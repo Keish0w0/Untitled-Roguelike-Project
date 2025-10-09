@@ -12,9 +12,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	queue_free()
-	if body.has_method("take_damage"):
-		body.take_damage(damage)
-		print(damage)
+	if body.has_node("EnemyHitboxComponent"):
+		body.hitbox.take_damage(damage)
+		body.knockback = direction * 50
 
 func _on_screen_exited() -> void:
 	queue_free()

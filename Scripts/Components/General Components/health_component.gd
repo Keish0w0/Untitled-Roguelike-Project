@@ -14,8 +14,8 @@ func _ready() -> void:
 
 func damage(dmg):
 	health -= dmg
-	print(health)
-	parent.anim.hurt()
+	if parent == Player:
+		parent.anim.hurt()
 	emit_signal("took_damage")
 
 	if health <= 0:
@@ -29,4 +29,5 @@ func regen(heal):
 		health = max_health
 
 func death():
-	print("Game Over")
+	if parent != Player:
+		parent.queue_free()

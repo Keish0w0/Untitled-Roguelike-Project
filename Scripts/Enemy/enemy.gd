@@ -6,12 +6,17 @@ var damage: float
 var knockback: Vector2
 var seperation: float
 
+##REFERENCES
+@onready var hitbox = $EnemyHitboxComponent
+
 var type: Enemy:
 	set(value):
 		type = value
 		$AnimationComponent/Sprite2D.texture = value.texture
 		damage = value.damage
 		max_speed = value.speed
+
+var is_visible_on_screen = false
 
 func _physics_process(delta: float) -> void:
 	check_seperation(delta)
@@ -27,11 +32,11 @@ func check_seperation(_delta):
 		queue_free()
 	
 	if seperation < player_ref.nearest_enemy_distance:
-		player_ref.nearest_enemy = self
+		if is_visible_on_screen == true:
+			player_ref.nearest_enemy = self
 
 func knockback_update(delta):
 	#MOVEMENT
-	#velocity = velocity.lerp((player_ref.position - position).normalized() * max_speed, 1)
 	velocity = (player_ref.position - position).normalized() * max_speed
 	knockback = knockback.move_toward(Vector2.ZERO, 1)
 	velocity += knockback
@@ -42,4 +47,10 @@ func knockback_update(delta):
 func flip_sprite():
 	$AnimationComponent/Sprite2D.flip_h = global_position.direction_to(player_ref.global_position).x < 0
 
+func _on_screen_entered() -> void:
+	is_visible_on_screen = true
+
+func _on_screen_exited() -> void:
+	is_visible_on_screen = false
+	
 func contact_damage(): pass
