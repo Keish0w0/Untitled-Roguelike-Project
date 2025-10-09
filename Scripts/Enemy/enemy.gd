@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
 @export var player_ref: Player
 var max_speed: float
@@ -9,10 +9,10 @@ var seperation: float
 ##REFERENCES
 @onready var hitbox = $EnemyHitboxComponent
 
-var type: Enemy:
+var type: EnemyResource:
 	set(value):
 		type = value
-		$AnimationComponent/Sprite2D.texture = value.texture
+		$AnimationComponent/EnemySprite.texture = value.texture
 		damage = value.damage
 		max_speed = value.speed
 
@@ -45,7 +45,7 @@ func knockback_update(delta):
 		collider.get_collider().knockback = (collider.get_collider().global_position - global_position).normalized() * 35
 
 func flip_sprite():
-	$AnimationComponent/Sprite2D.flip_h = global_position.direction_to(player_ref.global_position).x < 0
+	$AnimationComponent/EnemySprite.flip_h = global_position.direction_to(player_ref.global_position).x < 0
 
 func _on_screen_entered() -> void:
 	is_visible_on_screen = true

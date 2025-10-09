@@ -6,7 +6,7 @@ extends Node2D
 
 @export var distance: float = 300
 
-@export var enemy_types: Array[Enemy]
+@export var enemy_types: Array[EnemyResource]
 
 var minute: int
 var second: int:

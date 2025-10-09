@@ -1,6 +1,5 @@
 class_name HealthComponent extends Node2D
 
-signal took_damage
 
 @export var hitbox_component = Node2D
 @onready var parent : CharacterBody2D = $".."
@@ -16,7 +15,6 @@ func damage(dmg):
 	health -= dmg
 	if parent == Player:
 		parent.anim.hurt()
-	emit_signal("took_damage")
 
 	if health <= 0:
 		death()
@@ -29,5 +27,6 @@ func regen(heal):
 		health = max_health
 
 func death():
-	if parent != Player:
+	if parent.has_node("EnemyCollision"):
 		parent.queue_free()
+	else: print("game over!")

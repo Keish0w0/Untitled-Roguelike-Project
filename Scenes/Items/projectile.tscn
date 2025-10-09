@@ -1,12 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://elafthlw6dmw"]
+[gd_scene load_steps=11 format=3 uid="uid://elafthlw6dmw"]
 
 [ext_resource type="Script" uid="uid://cpef7hid7p468" path="res://Scripts/projectile.gd" id="1_f8cdk"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yr2qt"]
-size = Vector2(5, 5)
+[ext_resource type="Texture2D" uid="uid://cunv20rde33fd" path="res://Sprites/Player/Weapons/Icons/Red.png" id="2_25ja4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tl4hk"]
 radius = 3.0
+
+[sub_resource type="Gradient" id="Gradient_sfk3l"]
+colors = PackedColorArray(1, 0.8117647, 0, 1, 1, 0.13725491, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lluq4"]
+gradient = SubResource("Gradient_sfk3l")
+
+[sub_resource type="Gradient" id="Gradient_ppnfx"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7kae4"]
+gradient = SubResource("Gradient_ppnfx")
+
+[sub_resource type="Curve" id="Curve_qb7pv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uonjn"]
+curve = SubResource("Curve_qb7pv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iwybn"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector3(1, 1, 0)
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_uonjn")
+color_ramp = SubResource("GradientTexture1D_7kae4")
+color_initial_ramp = SubResource("GradientTexture1D_lluq4")
+turbulence_enabled = true
 
 [node name="Projectile" type="Area2D"]
 collision_layer = 5
@@ -14,13 +46,17 @@ collision_mask = 5
 script = ExtResource("1_f8cdk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_yr2qt")
+texture = ExtResource("2_25ja4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tl4hk")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-3, -3, 6, 6)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_iwybn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

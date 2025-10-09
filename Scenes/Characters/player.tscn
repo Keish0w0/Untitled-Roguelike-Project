@@ -85,7 +85,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_15c3i"]
 resource_name = "hurt"
-length = 0.16667084
+length = 0.0833375
 step = 0.041666668
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -94,10 +94,10 @@ tracks/0/path = NodePath("PlayerAnimationComponent/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.083333336),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [28, 27]
+"values": [27]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -106,7 +106,7 @@ tracks/1/path = NodePath("StateMachine/Hurt")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.16666667),
+"times": PackedFloat32Array(0.083333336),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -220,8 +220,9 @@ position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_q5hbr")
 debug_color = Color(1, 1, 1, 0.41960785)
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_fcmex")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "animation_component") instance=ExtResource("4_fcmex")]
 health_component = NodePath("../HealthComponent")
+animation_component = NodePath("../PlayerAnimationComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, 5)
@@ -272,9 +273,9 @@ one_shot = true
 script = ExtResource("13_xccyk")
 
 [connection signal="body_entered" from="HitboxComponent" to="HitboxComponent" method="_on_body_entered"]
+[connection signal="took_damage" from="HitboxComponent" to="StateMachine/Idle" method="_took_damage"]
+[connection signal="took_damage" from="HitboxComponent" to="StateMachine/Running" method="_took_damage"]
+[connection signal="took_damage" from="HitboxComponent" to="StateMachine/Dash" method="_took_damage"]
 [connection signal="timeout" from="HitboxComponent/DamageCooldown" to="HitboxComponent" method="_on_damage_cooldown_timeout"]
-[connection signal="took_damage" from="HealthComponent" to="StateMachine/Idle" method="_took_damage"]
-[connection signal="took_damage" from="HealthComponent" to="StateMachine/Running" method="_took_damage"]
-[connection signal="took_damage" from="HealthComponent" to="StateMachine/Dash" method="_took_damage"]
 [connection signal="aim" from="InputComponent" to="." method="_on_aim"]
 [connection signal="timeout" from="StateMachine/Dash/DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]

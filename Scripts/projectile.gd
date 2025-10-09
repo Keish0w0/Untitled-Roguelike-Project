@@ -11,10 +11,11 @@ func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 
 func _on_body_entered(body: Node2D) -> void:
-	queue_free()
+	#queue_free()
 	if body.has_node("EnemyHitboxComponent"):
 		body.hitbox.take_damage(damage)
 		body.knockback = direction * 50
 
 func _on_screen_exited() -> void:
+	await get_tree().create_timer(5).timeout
 	queue_free()

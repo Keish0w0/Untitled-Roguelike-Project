@@ -17,3 +17,9 @@ func run(): anim_player.play("run")
 func dodge(): anim_player.play("dodge")
 func hurt(): anim_player.play("hurt")
 func death(): anim_player.play("death")
+
+func hit_flash():
+	var tween = get_tree().create_tween()
+	tween.tween_property(player_sprite, "modulate", Color(12.231, 12.231, 12.231, 1.0), 0.01)
+	tween.chain().tween_property(player_sprite, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.01)
+	
