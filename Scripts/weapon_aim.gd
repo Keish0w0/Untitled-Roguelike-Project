@@ -6,8 +6,10 @@ class_name WeaponAim extends Node2D
 		$Sprite2D.texture = value.texture
 
 @onready var start : Marker2D = $Start
+var mouse_pos : Vector2
 
 func _process(_delta: float) -> void:
+	mouse_pos = get_global_mouse_position()
 	aiming()
 	rotation()
 
@@ -16,7 +18,7 @@ func aiming():
 		if $"..".nearest_enemy:
 			look_at($"..".nearest_enemy.position)
 	elif $"..".auto_aim == false:
-		look_at(get_global_mouse_position())
+		look_at(mouse_pos)
 
 func rotation():
 	rotation_degrees = wrap(rotation_degrees, 0, 360)

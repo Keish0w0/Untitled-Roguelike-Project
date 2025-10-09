@@ -26,7 +26,9 @@ var input : Vector2
 var nearest_enemy : CharacterBody2D
 var nearest_enemy_distance : float = INF
 
+##AIM
 var auto_aim : bool = true
+#var mouse_pos = get_global
 
 func _process(_delta: float) -> void:
 	input = $InputComponent.movement

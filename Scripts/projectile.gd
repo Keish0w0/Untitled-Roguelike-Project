@@ -2,10 +2,9 @@ extends Area2D
 
 @export var player_ref: Player
 
-var direction : Vector2 = Vector2.RIGHT.rotated(rotation)
+var direction : Vector2 = Vector2.RIGHT
 var speed : float = 200
 var damage : float = 1
-var piercing : float = 0
 var type : String
 
 func _physics_process(delta: float) -> void:

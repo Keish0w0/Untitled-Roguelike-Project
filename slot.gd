@@ -12,4 +12,4 @@ func _ready() -> void: pass
 func _on_cooldown_timeout() -> void:
 	if item:
 		$Cooldown.wait_time = item.cooldown
-		item.activate(owner, owner.staff, get_tree())
+		item.activate(owner, owner.staff, owner.nearest_enemy, get_tree())

@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="SingleShot" load_steps=6 format=3 uid="uid://tjxo435f2tl8"]
+[gd_resource type="Resource" script_class="SingleShot" load_steps=5 format=3 uid="uid://tjxo435f2tl8"]
 
 [ext_resource type="Texture2D" uid="uid://x3ugj3cijh3v" path="res://Sprites/Player/Weapons/Icons/Mistwinter-Staff_Icon.png" id="1_tnod4"]
 [ext_resource type="PackedScene" uid="uid://elafthlw6dmw" path="res://Scenes/Items/projectile.tscn" id="2_gcxg5"]
 [ext_resource type="Script" uid="uid://dckkvpq6n8rn5" path="res://Scripts/single_shot.gd" id="3_kqr6e"]
 [ext_resource type="Texture2D" uid="uid://bqn1btuxgw0i4" path="res://Sprites/Player/Weapons/Mistwinter_Staff.png" id="4_hv5hs"]
-[ext_resource type="PackedScene" uid="uid://ltkvyoh80b4g" path="res://Scenes/Functions/weapon_aim.tscn" id="5_fbqje"]
 
 [resource]
 script = ExtResource("3_kqr6e")
@@ -12,7 +11,7 @@ title = "Mistwinter Staff"
 texture = ExtResource("4_hv5hs")
 icon = ExtResource("1_tnod4")
 damage = 12.0
-cooldown = 0.05
+cooldown = 1.0
 speed = 300.0
 piercing = 0.1
 type = "staff"
