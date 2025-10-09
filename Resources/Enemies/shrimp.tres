@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://t5mb1okeuybq"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://t5mb1okeuybq"]
 
 [ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Resources/enemy_type.gd" id="1_w7e3t"]
-[ext_resource type="Texture2D" uid="uid://bjd0imxekjnc0" path="res://Sprites/Placeholder Sprites/HoloSprites/Shrimp-Sheet.png" id="2_w7e3t"]
+[ext_resource type="Texture2D" uid="uid://dwfg71y7dv26a" path="res://Sprites/Placeholder Sprites/HoloSprites/Shrimp-Sheet.png" id="2_w7e3t"]
 
 [resource]
 script = ExtResource("1_w7e3t")
