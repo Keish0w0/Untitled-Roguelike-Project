@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=4 uid="uid://cpk7qppnvi43h"]
 
 [ext_resource type="Texture2D" uid="uid://dkis0ppr4ja5b" path="res://Sprites/Placeholder Sprites/sprites/tilesets/grass.png" id="1_vadfg"]
-[ext_resource type="PackedScene" uid="uid://bigqx64ccche" path="res://Scenes/Functions/spawner.tscn" id="1_yp2ti"]
+[ext_resource type="PackedScene" uid="uid://bigqx64ccche" path="res://Scenes/Behaviors/spawner.tscn" id="1_yp2ti"]
 [ext_resource type="PackedScene" uid="uid://x84vm6f4d0q3" path="res://Scenes/Characters/player.tscn" id="2_3rhlx"]
 [ext_resource type="Texture2D" uid="uid://cmtih05jrao8s" path="res://Sprites/Placeholder Sprites/sprites/tilesets/plains.png" id="2_l1hd3"]
 [ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Resources/enemy_type.gd" id="5_fcotr"]

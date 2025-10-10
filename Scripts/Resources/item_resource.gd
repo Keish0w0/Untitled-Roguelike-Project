@@ -12,6 +12,6 @@ class_name Items extends Resource
 
 @export var type : String
 
-@export var projectile_node : PackedScene = preload("res://Scenes/Items/projectile.tscn")
+@export var projectile_node : PackedScene = preload("res://Scenes/Item Functions/projectile.tscn")
 
 func activate(_source, _staff, _target, _scene_tree): pass

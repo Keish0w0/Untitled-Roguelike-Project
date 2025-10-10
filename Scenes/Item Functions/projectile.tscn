@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://elafthlw6dmw"]
 
-[ext_resource type="Script" uid="uid://cpef7hid7p468" path="res://Scripts/projectile.gd" id="1_f8cdk"]
+[ext_resource type="Script" uid="uid://cpef7hid7p468" path="res://Scripts/Items/projectile.gd" id="1_f8cdk"]
 [ext_resource type="Texture2D" uid="uid://cunv20rde33fd" path="res://Sprites/Player/Weapons/Icons/Red.png" id="2_25ja4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tl4hk"]
 radius = 3.0
 
 [sub_resource type="Gradient" id="Gradient_sfk3l"]
-colors = PackedColorArray(1, 0.8117647, 0, 1, 1, 0.13725491, 0, 1)
+colors = PackedColorArray(0.4120344, 0.9166195, 0.99130327, 1, 0.32012668, 0.50870085, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_lluq4"]
 gradient = SubResource("Gradient_sfk3l")
@@ -30,15 +30,14 @@ particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 4.0
 direction = Vector3(1, 1, 0)
-initial_velocity_min = -10.0
-initial_velocity_max = 10.0
+initial_velocity_min = -5.0
+initial_velocity_max = 5.0
 gravity = Vector3(0, 0, 0)
 scale_min = 2.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_uonjn")
 color_ramp = SubResource("GradientTexture1D_7kae4")
 color_initial_ramp = SubResource("GradientTexture1D_lluq4")
-turbulence_enabled = true
 
 [node name="Projectile" type="Area2D"]
 collision_layer = 5
@@ -55,7 +54,8 @@ shape = SubResource("CircleShape2D_tl4hk")
 rect = Rect2(-3, -3, 6, 6)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 100
+amount = 50
+lifetime = 0.09999999999999999
 process_material = SubResource("ParticleProcessMaterial_iwybn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
