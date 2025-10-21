@@ -8,12 +8,14 @@ var seperation: float
 
 ##REFERENCES
 @onready var hitbox = $EnemyHitboxComponent
+@onready var enemy_health = $HealthComponent
 
 var type: EnemyResource:
 	set(value):
 		type = value
 		$AnimationComponent/EnemySprite.texture = value.texture
 		damage = value.damage
+		$HealthComponent.max_health = value.health
 		max_speed = value.speed
 
 var is_visible_on_screen = false

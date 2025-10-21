@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://x84vm6f4d0q3"]
+[gd_scene load_steps=29 format=3 uid="uid://x84vm6f4d0q3"]
 
 [ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/Player/player.gd" id="1_o0f8b"]
 [ext_resource type="PackedScene" uid="uid://bbkpc0bufcyqi" path="res://Scenes/Item Functions/slot.tscn" id="2_h1n2f"]
@@ -7,14 +7,17 @@
 [ext_resource type="Script" uid="uid://d0d7iiw73mo4c" path="res://Scripts/StateMachine/state_machine.gd" id="4_ajo0r"]
 [ext_resource type="PackedScene" uid="uid://dw85gk414jek3" path="res://Scenes/Component Scenes/Player Components/hitbox_component.tscn" id="4_fcmex"]
 [ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/StateMachine/Player States/idle.gd" id="4_ons1q"]
+[ext_resource type="Texture2D" uid="uid://cplrjvvtgc3w8" path="res://Textures/UI/xp_under.png" id="4_yt1oc"]
 [ext_resource type="Script" uid="uid://3t1qmjx36l7w" path="res://Scripts/StateMachine/Player States/running.gd" id="5_ajo0r"]
 [ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Component Scenes/General Components/health_component.tscn" id="5_fcmex"]
+[ext_resource type="Texture2D" uid="uid://2p8jfwsxf6hb" path="res://Textures/UI/xp_progress.png" id="5_jnx77"]
 [ext_resource type="PackedScene" uid="uid://7nkymcduj65m" path="res://Scenes/Component Scenes/Player Components/stamina_component.tscn" id="6_25bbb"]
 [ext_resource type="PackedScene" uid="uid://ltkvyoh80b4g" path="res://Scenes/Item Functions/weapon_aim.tscn" id="6_dxpk4"]
 [ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/StateMachine/Player States/dash.gd" id="6_flf3p"]
+[ext_resource type="FontFile" uid="uid://bk8mctsdvhnwp" path="res://Textures/Fonts/PublicPixel.ttf" id="6_jnx77"]
 [ext_resource type="PackedScene" uid="uid://jyjftkxrxfs1" path="res://Scenes/Component Scenes/Player Components/input_component.tscn" id="7_25bbb"]
 [ext_resource type="PackedScene" uid="uid://jpwg0x2qy572" path="res://Scenes/Component Scenes/Player Components/movement_component.tscn" id="8_cueqf"]
-[ext_resource type="Texture2D" uid="uid://dqb4cdtajqubb" path="res://Sprites/Player/Keisha-Sheet.png" id="13_01b8d"]
+[ext_resource type="Texture2D" uid="uid://dqb4cdtajqubb" path="res://Textures/Player/Keisha-Sheet.png" id="13_01b8d"]
 [ext_resource type="Script" uid="uid://c6lnff5grxip1" path="res://Scripts/StateMachine/Player States/hurt.gd" id="13_xccyk"]
 
 [sub_resource type="Animation" id="Animation_xccyk"]
@@ -177,12 +180,13 @@ script = ExtResource("1_o0f8b")
 
 [node name="Weapons" type="HBoxContainer" parent="UI"]
 offset_left = 4.0
-offset_top = 4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_top = 15.0
+offset_right = 78.0
+offset_bottom = 37.0
 
 [node name="Slot1" parent="UI/Weapons" instance=ExtResource("2_h1n2f")]
 layout_mode = 2
+tooltip_text = "qag"
 item = ExtResource("3_h1n2f")
 
 [node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_h1n2f")]
@@ -190,6 +194,25 @@ layout_mode = 2
 
 [node name="Slot3" parent="UI/Weapons" instance=ExtResource("2_h1n2f")]
 layout_mode = 2
+
+[node name="XP" type="TextureProgressBar" parent="UI"]
+offset_right = 640.0
+offset_bottom = 9.0
+value = 100.0
+texture_under = ExtResource("4_yt1oc")
+texture_progress = ExtResource("5_jnx77")
+
+[node name="Level" type="Label" parent="UI/XP"]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 1.0
+offset_right = 639.0
+offset_bottom = 24.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_jnx77")
+theme_override_font_sizes/font_size = 8
+text = "LV: 0"
+horizontal_alignment = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3

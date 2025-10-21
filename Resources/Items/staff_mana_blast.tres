@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="SingleShot" load_steps=5 format=3 uid="uid://tjxo435f2tl8"]
 
-[ext_resource type="Texture2D" uid="uid://x3ugj3cijh3v" path="res://Sprites/Player/Weapons/Icons/Mistwinter-Staff_Icon.png" id="1_tnod4"]
+[ext_resource type="Texture2D" uid="uid://x3ugj3cijh3v" path="res://Textures/Player/Weapons/Icons/Mistwinter-Staff_Icon.png" id="1_tnod4"]
 [ext_resource type="PackedScene" uid="uid://elafthlw6dmw" path="res://Scenes/Item Functions/projectile.tscn" id="2_gcxg5"]
 [ext_resource type="Script" uid="uid://dckkvpq6n8rn5" path="res://Scripts/Items/single_shot.gd" id="3_kqr6e"]
-[ext_resource type="Texture2D" uid="uid://bqn1btuxgw0i4" path="res://Sprites/Player/Weapons/Mistwinter_Staff.png" id="4_hv5hs"]
+[ext_resource type="Texture2D" uid="uid://bqn1btuxgw0i4" path="res://Textures/Player/Weapons/Mistwinter_Staff.png" id="4_hv5hs"]
 
 [resource]
 script = ExtResource("3_kqr6e")

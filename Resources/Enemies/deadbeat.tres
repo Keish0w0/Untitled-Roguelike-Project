@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://7cvhk7mpvt01"]
 
 [ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Resources/enemy_type.gd" id="1_xm1mn"]
-[ext_resource type="Texture2D" uid="uid://bdbolm1y0wbpx" path="res://Sprites/Placeholder Sprites/HoloSprites/Deadbeat-Sheet.png" id="2_xm1mn"]
+[ext_resource type="Texture2D" uid="uid://bdbolm1y0wbpx" path="res://Textures/Placeholder Sprites/HoloSprites/Deadbeat-Sheet.png" id="2_xm1mn"]
 
 [resource]
 script = ExtResource("1_xm1mn")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://elafthlw6dmw"]
 
 [ext_resource type="Script" uid="uid://cpef7hid7p468" path="res://Scripts/Items/projectile.gd" id="1_f8cdk"]
-[ext_resource type="Texture2D" uid="uid://cunv20rde33fd" path="res://Sprites/Player/Weapons/Icons/Red.png" id="2_25ja4"]
+[ext_resource type="Texture2D" uid="uid://cunv20rde33fd" path="res://Textures/Player/Weapons/Icons/Red.png" id="2_25ja4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tl4hk"]
 radius = 3.0

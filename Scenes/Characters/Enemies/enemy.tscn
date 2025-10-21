@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://i2awk86mfs0u" path="res://Scripts/Enemy/enemy.gd" id="1_ofthe"]
 [ext_resource type="Script" uid="uid://dlyuwr6hvswq1" path="res://Scripts/Components/General Components/animation_component.gd" id="2_67xvd"]
-[ext_resource type="Texture2D" uid="uid://dwfg71y7dv26a" path="res://Sprites/Placeholder Sprites/HoloSprites/Shrimp-Sheet.png" id="3_67xvd"]
+[ext_resource type="Texture2D" uid="uid://dwfg71y7dv26a" path="res://Textures/Placeholder Sprites/HoloSprites/Shrimp-Sheet.png" id="3_67xvd"]
 [ext_resource type="PackedScene" uid="uid://dvnbf8jvk1qwj" path="res://Scenes/Component Scenes/Enemy Components/enemy_hitbox_component.tscn" id="3_rmt0q"]
 [ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Component Scenes/General Components/health_component.tscn" id="4_lij3b"]
 [ext_resource type="Script" uid="uid://dw6b11qrvupr5" path="res://Scripts/Enemy/enemy_sprite.gd" id="4_rmt0q"]

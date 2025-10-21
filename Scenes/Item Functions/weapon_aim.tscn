@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ltkvyoh80b4g"]
 
 [ext_resource type="Script" uid="uid://ca1gxfc02ciei" path="res://Scripts/Items/weapon_aim.gd" id="1_shkov"]
-[ext_resource type="Texture2D" uid="uid://bqn1btuxgw0i4" path="res://Sprites/Player/Weapons/Mistwinter_Staff.png" id="2_8dh1j"]
+[ext_resource type="Texture2D" uid="uid://bqn1btuxgw0i4" path="res://Textures/Player/Weapons/Mistwinter_Staff.png" id="2_8dh1j"]
 
 [node name="WeaponAim" type="Node2D"]
 script = ExtResource("1_shkov")
