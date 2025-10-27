@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 
 func check_seperation(_delta):
 	seperation = (player_ref.position - position).length()
-	if seperation >= 1000:
+	if seperation >= 800:
 		queue_free()
 	
 	if seperation < player_ref.nearest_enemy_distance:

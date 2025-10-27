@@ -191,9 +191,11 @@ item = ExtResource("3_h1n2f")
 
 [node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_h1n2f")]
 layout_mode = 2
+item = ExtResource("3_h1n2f")
 
 [node name="Slot3" parent="UI/Weapons" instance=ExtResource("2_h1n2f")]
 layout_mode = 2
+item = ExtResource("3_h1n2f")
 
 [node name="XP" type="TextureProgressBar" parent="UI"]
 offset_right = 640.0
