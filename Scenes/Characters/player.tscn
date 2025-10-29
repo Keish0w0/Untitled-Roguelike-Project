@@ -187,7 +187,6 @@ offset_bottom = 37.0
 [node name="Slot1" parent="UI/Weapons" instance=ExtResource("2_h1n2f")]
 layout_mode = 2
 tooltip_text = "qag"
-item = ExtResource("3_h1n2f")
 
 [node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_h1n2f")]
 layout_mode = 2
