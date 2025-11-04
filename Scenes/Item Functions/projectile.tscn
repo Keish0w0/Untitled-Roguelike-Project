@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://elafthlw6dmw"]
 
 [ext_resource type="Script" uid="uid://cpef7hid7p468" path="res://Scripts/Items/projectile.gd" id="1_f8cdk"]
-[ext_resource type="Texture2D" uid="uid://cunv20rde33fd" path="res://Textures/Player/Weapons/Icons/Red.png" id="2_25ja4"]
+[ext_resource type="Texture2D" uid="uid://cpn5355b4x1bu" path="res://Textures/Player/Weapons/Blue.png" id="2_huscp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tl4hk"]
 radius = 3.0
@@ -45,7 +45,7 @@ collision_mask = 5
 script = ExtResource("1_f8cdk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_25ja4")
+texture = ExtResource("2_huscp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tl4hk")
@@ -55,7 +55,7 @@ rect = Rect2(-3, -3, 6, 6)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 50
-lifetime = 0.09999999999999999
+lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_iwybn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
