@@ -204,7 +204,7 @@ item = ExtResource("3_h1n2f")
 unique_name_in_owner = true
 offset_right = 640.0
 offset_bottom = 9.0
-max_value = 5.0
+max_value = 6.0
 texture_under = ExtResource("4_yt1oc")
 texture_progress = ExtResource("5_jnx77")
 

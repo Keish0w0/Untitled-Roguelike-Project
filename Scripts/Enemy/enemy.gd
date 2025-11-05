@@ -11,6 +11,7 @@ var drop = preload("res://Scenes/Drops/pickups.tscn")
 ##REFERENCES
 @onready var hitbox = $EnemyHitboxComponent
 @onready var enemy_health = $HealthComponent
+@onready var drop_comp = $DropsComponent
 
 var type: EnemyResource:
 	set(value):

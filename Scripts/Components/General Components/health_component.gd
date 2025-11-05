@@ -17,6 +17,8 @@ func damage(dmg):
 		parent.anim.hurt()
 
 	if health <= 0:
+		if parent.has_node("EnemyCollision"):
+			parent.drop_comp.drop_item()
 		death()
 
 func regen(heal):

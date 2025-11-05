@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://buu5a8iikjlo5"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=5 format=3 uid="uid://buu5a8iikjlo5"]
 
+[ext_resource type="Script" uid="uid://cpbt4bdlfwp8q" path="res://Scripts/pickup_resource.gd" id="1_4xlvm"]
 [ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Resources/enemy_type.gd" id="1_umif5"]
+[ext_resource type="Resource" uid="uid://dlbahttkixg73" path="res://Resources/EXP/small_xp.tres" id="2_5wkju"]
 [ext_resource type="Texture2D" uid="uid://ckk4m8segnj0b" path="res://Textures/Placeholder Sprites/HoloSprites/Investi-Gator-Sheet.png" id="2_umif5"]
 
 [resource]
@@ -9,3 +11,4 @@ title = "Investigator"
 texture = ExtResource("2_umif5")
 health = 100.0
 speed = 80.0
+drops = Array[ExtResource("1_4xlvm")]([ExtResource("2_5wkju")])

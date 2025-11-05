@@ -1,4 +1,4 @@
-extends Node2D
+class_name XPComponent extends Node2D
 
 @onready var player_ref : CharacterBody2D = $".."
 
@@ -24,6 +24,11 @@ func check_xp():
 	if XP >= %XP.max_value:
 		XP -= %XP.max_value
 		level += 1
+		
+		if level >= 3:
+			%XP.max_value += 2
+		elif level >= 11:
+			%XP.max_value += 5
 
 func _on_magnet_area_entered(area: Area2D) -> void:
 	if area.has_method("follow"):

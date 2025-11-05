@@ -1,7 +1,7 @@
 extends Area2D
 
 var direction : Vector2
-var speed : float = 100
+var speed : float = 150
 
 @export var type : Pickups
 @export var player_ref : CharacterBody2D :
@@ -21,8 +21,8 @@ func _physics_process(delta: float) -> void:
 
 func follow(_target : CharacterBody2D):
 	can_follow = true
-	print("squish")
 
-func _on_body_entered(_body: Node2D) -> void:
-	type.activate()
-	queue_free()
+func _on_body_entered(body: Node2D) -> void:
+	if body.has_node("Magnet"):
+		type.activate()
+		queue_free()
