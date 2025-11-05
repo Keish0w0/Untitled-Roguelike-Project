@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://x84vm6f4d0q3"]
+[gd_scene load_steps=31 format=3 uid="uid://x84vm6f4d0q3"]
 
 [ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/Player/player.gd" id="1_o0f8b"]
 [ext_resource type="PackedScene" uid="uid://bbkpc0bufcyqi" path="res://Scenes/Item Functions/slot.tscn" id="2_h1n2f"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://jpwg0x2qy572" path="res://Scenes/Component Scenes/Player Components/movement_component.tscn" id="8_cueqf"]
 [ext_resource type="Texture2D" uid="uid://dqb4cdtajqubb" path="res://Textures/Player/Keisha-Sheet.png" id="13_01b8d"]
 [ext_resource type="Script" uid="uid://c6lnff5grxip1" path="res://Scripts/StateMachine/Player States/hurt.gd" id="13_xccyk"]
+[ext_resource type="Script" uid="uid://imoql1q6sqgt" path="res://Scripts/Components/Player Components/xp_component.gd" id="15_hy8lp"]
 
 [sub_resource type="Animation" id="Animation_xccyk"]
 length = 0.001
@@ -171,6 +172,9 @@ height = 14.0
 radius = 7.0
 height = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hy8lp"]
+radius = 50.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 motion_mode = 1
@@ -197,22 +201,24 @@ layout_mode = 2
 item = ExtResource("3_h1n2f")
 
 [node name="XP" type="TextureProgressBar" parent="UI"]
+unique_name_in_owner = true
 offset_right = 640.0
 offset_bottom = 9.0
-value = 100.0
+max_value = 5.0
 texture_under = ExtResource("4_yt1oc")
 texture_progress = ExtResource("5_jnx77")
 
 [node name="Level" type="Label" parent="UI/XP"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 583.0
 offset_top = 1.0
-offset_right = 639.0
+offset_right = 638.0
 offset_bottom = 24.0
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("6_jnx77")
 theme_override_font_sizes/font_size = 8
-text = "LV: 0"
+text = "LV 0"
 horizontal_alignment = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -274,6 +280,9 @@ show_percentage = false
 
 [node name="MovementComponent" parent="." instance=ExtResource("8_cueqf")]
 
+[node name="XPComponent" type="Node2D" parent="."]
+script = ExtResource("15_hy8lp")
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_ajo0r")
 initial_state = NodePath("Idle")
@@ -296,6 +305,15 @@ one_shot = true
 [node name="Hurt" type="Node" parent="StateMachine"]
 script = ExtResource("13_xccyk")
 
+[node name="Magnet" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_hy8lp")
+debug_color = Color(1, 1, 1, 0.41960785)
+
 [connection signal="body_entered" from="HitboxComponent" to="HitboxComponent" method="_on_body_entered"]
 [connection signal="took_damage" from="HitboxComponent" to="StateMachine/Idle" method="_took_damage"]
 [connection signal="took_damage" from="HitboxComponent" to="StateMachine/Running" method="_took_damage"]
@@ -303,3 +321,4 @@ script = ExtResource("13_xccyk")
 [connection signal="timeout" from="HitboxComponent/DamageCooldown" to="HitboxComponent" method="_on_damage_cooldown_timeout"]
 [connection signal="aim" from="InputComponent" to="." method="_on_aim"]
 [connection signal="timeout" from="StateMachine/Dash/DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
+[connection signal="area_entered" from="Magnet" to="XPComponent" method="_on_magnet_area_entered"]

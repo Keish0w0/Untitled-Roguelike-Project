@@ -6,3 +6,4 @@ class_name EnemyResource
 @export var health: float
 @export var damage: float
 @export var speed: float
+@export var drops : Array[Pickups]

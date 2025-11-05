@@ -5,4 +5,4 @@ class_name Experience extends Pickups
 func activate():
 	super.activate()
 	prints("+" + str(XP) + "XP")
-	player_ref.gain_XP(XP)
+	player_ref.xp.gain_xp(XP)

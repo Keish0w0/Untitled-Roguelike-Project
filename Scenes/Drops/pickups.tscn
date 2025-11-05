@@ -8,8 +8,8 @@ size = Vector2(10, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_t247h"]
 
 [node name="Pickups" type="Area2D"]
-collision_layer = 8
-collision_mask = 2
+collision_layer = 10
+collision_mask = 10
 script = ExtResource("1_kmqwj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,3 +17,5 @@ texture = SubResource("PlaceholderTexture2D_kmqwj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_t247h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

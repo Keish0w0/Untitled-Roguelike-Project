@@ -1,0 +1,30 @@
+extends Node2D
+
+@onready var player_ref : CharacterBody2D = $".."
+
+var XP : int = 0:
+	set(value): 
+		XP = value
+		%XP.value = value
+var total_XP : int = 0
+
+var level : int = 0:
+	set(value): 
+		level = value
+		%Level.text = "LV " + str(value)
+
+func _process(_delta) -> void:
+	check_xp()
+
+func gain_xp(amount):
+	XP += amount
+	total_XP += amount
+
+func check_xp():
+	if XP >= %XP.max_value:
+		XP -= %XP.max_value
+		level += 1
+
+func _on_magnet_area_entered(area: Area2D) -> void:
+	if area.has_method("follow"):
+		area.follow(player_ref)

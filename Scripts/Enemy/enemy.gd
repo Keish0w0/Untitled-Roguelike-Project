@@ -6,6 +6,8 @@ var damage: float
 var knockback: Vector2
 var seperation: float
 
+var drop = preload("res://Scenes/Drops/pickups.tscn")
+
 ##REFERENCES
 @onready var hitbox = $EnemyHitboxComponent
 @onready var enemy_health = $HealthComponent
