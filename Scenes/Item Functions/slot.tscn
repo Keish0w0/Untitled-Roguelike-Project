@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://beswbm76i4et" path="res://Scripts/Items/slot.gd" id="1_luhj6"]
 
 [node name="Slot" type="PanelContainer"]
+texture_filter = 2
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_luhj6")

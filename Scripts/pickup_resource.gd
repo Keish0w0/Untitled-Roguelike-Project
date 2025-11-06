@@ -7,4 +7,5 @@ class_name Pickups extends Resource
 var player_ref : CharacterBody2D
 
 func activate():
-	print(title + " picked up.")
+	#print(title + " picked up.")
+	pass
