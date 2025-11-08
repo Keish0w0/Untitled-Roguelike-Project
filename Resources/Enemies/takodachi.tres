@@ -10,5 +10,6 @@ script = ExtResource("1_ojp5l")
 title = "Takodachi"
 texture = ExtResource("2_w6xcv")
 health = 80.0
+damage = 4.0
 speed = 40.0
 drops = Array[ExtResource("1_sfnpg")]([ExtResource("2_siua0")])

@@ -17,7 +17,7 @@ func take_damage(attack):
 	emit_signal("took_damage")
 	
 func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("contact_damage"):
+	if body.has_node("EnemyCollision"):
 		take_damage(body.damage)
 
 func _on_damage_cooldown_timeout() -> void:

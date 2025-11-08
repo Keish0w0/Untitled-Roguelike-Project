@@ -5,7 +5,7 @@ class_name StaminaComponent extends Node2D
 
 ##STAMINA
 @export var max_stamina : float = 100
-@export var stamina_recovery : float = 4.5
+@export var stamina_recovery : float = 2
 
 @onready var stamina_cooldown = $StaminaCooldown
 
@@ -35,7 +35,7 @@ func use_stamina(cost):
 	
 	if stamina <= 0:
 		stamina = 0
-	print("Stamina: " + str(stamina))
+	#print("Stamina: " + str(stamina))
 	
 	stamina_cooldown.start()
 

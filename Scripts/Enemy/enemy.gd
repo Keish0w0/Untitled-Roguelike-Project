@@ -1,10 +1,11 @@
 class_name Enemy extends CharacterBody2D
 
 @export var player_ref: Player
-var max_speed: float
-var damage: float
-var knockback: Vector2
-var seperation: float
+var damage_popup_node = preload("res://Scenes/Component Scenes/Enemy Components/damage_popup.tscn")
+var max_speed : float
+var damage : float
+var knockback : Vector2
+var seperation : float
 
 var drop = preload("res://Scenes/Drops/pickups.tscn")
 
@@ -49,6 +50,13 @@ func knockback_update(delta):
 	if collider:
 		collider.get_collider().knockback = (collider.get_collider().global_position - global_position).normalized() * 35
 
+func damage_popup(amount):
+	var int_value : int = int(amount)
+	var popup = damage_popup_node.instantiate()
+	popup.text = str(int_value)
+	popup.position = position + Vector2(-50, -25)
+	get_tree().current_scene.add_child(popup)
+
 func flip_sprite():
 	$AnimationComponent/EnemySprite.flip_h = global_position.direction_to(player_ref.global_position).x < 0
 
@@ -57,5 +65,3 @@ func _on_screen_entered() -> void:
 
 func _on_screen_exited() -> void:
 	is_visible_on_screen = false
-	
-func contact_damage(): pass

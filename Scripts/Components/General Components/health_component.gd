@@ -5,15 +5,30 @@ class_name HealthComponent extends Node2D
 @onready var parent : CharacterBody2D = $".."
 
 ##HEALTH
-@export var max_health : float = 5
-var health : float
+var health : float:
+	set(value):
+		health = max(value, 0)
+		%Health.value = value
+
+var max_health : float = 100 :
+	set(value):
+		max_health = value
+		%Health.max_value = value
+
+@export var health_recovery : float = 0.25
+@onready var health_cooldown = $HealthCooldown
+
+var health_regen : bool = false
 
 func _ready() -> void:
 	health = max_health
 
 func damage(dmg):
 	health -= dmg
+	health_regen = false
 	parent.anim.hurt()
+	
+	health_cooldown.start()
 
 	if health <= 0:
 		death()
@@ -27,3 +42,10 @@ func regen(heal):
 
 func death():
 	print("game over!")
+
+func _on_health_cooldown_timeout() -> void:
+	health_regen = true
+
+func _on_health_timer_timeout() -> void:
+	if health_regen == true:
+		health += health_recovery

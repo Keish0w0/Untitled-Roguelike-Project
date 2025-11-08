@@ -15,8 +15,8 @@ metadata/_custom_type_script = "uid://b0poi1rpvmn1p"
 
 [sub_resource type="Resource" id="Resource_fbqje"]
 script = ExtResource("6_kqr6e")
-cooldown = -0.1
-description = "-0.1 Cooldown"
+cooldown = -0.2
+description = "-0.2 Cooldown"
 metadata/_custom_type_script = "uid://b0poi1rpvmn1p"
 
 [sub_resource type="Resource" id="Resource_8bhuk"]
@@ -30,17 +30,17 @@ metadata/_custom_type_script = "uid://b0poi1rpvmn1p"
 [sub_resource type="Resource" id="Resource_oveul"]
 script = ExtResource("6_kqr6e")
 speed = 100.0
-cooldown = -0.2
+cooldown = -0.3
 description = "+50% Projectile Speed
-+0.2 Cooldown"
++0.3 Cooldown"
 metadata/_custom_type_script = "uid://b0poi1rpvmn1p"
 
 [sub_resource type="Resource" id="Resource_2lwpp"]
 script = ExtResource("6_kqr6e")
-damage = 3.0
-cooldown = -0.3
-description = "+3 Damage
--0.3 Cooldown
+pierce_limit = 1.0
+damage = 4.0
+description = "+4 Damage
++1 Piercing
 "
 metadata/_custom_type_script = "uid://b0poi1rpvmn1p"
 
