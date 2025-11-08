@@ -10,7 +10,7 @@ var drop = preload("res://Scenes/Drops/pickups.tscn")
 
 ##REFERENCES
 @onready var hitbox = $EnemyHitboxComponent
-@onready var enemy_health = $HealthComponent
+@onready var enemy_health = $EnemyHealthComponent
 @onready var drop_comp = $DropsComponent
 
 var type: EnemyResource:
@@ -18,7 +18,7 @@ var type: EnemyResource:
 		type = value
 		$AnimationComponent/EnemySprite.texture = value.texture
 		damage = value.damage
-		$HealthComponent.max_health = value.health
+		$EnemyHealthComponent.max_health = value.health
 		max_speed = value.speed
 
 var is_visible_on_screen = false
@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 
 func check_seperation(_delta):
 	seperation = (player_ref.position - position).length()
-	if seperation >= 800:
+	if seperation >= 1500:
 		queue_free()
 	
 	if seperation < player_ref.nearest_enemy_distance:

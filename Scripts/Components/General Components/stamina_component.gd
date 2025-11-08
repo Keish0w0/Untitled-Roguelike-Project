@@ -5,7 +5,8 @@ class_name StaminaComponent extends Node2D
 
 ##STAMINA
 @export var max_stamina : float = 100
-@export var stamina_regen_val : float = 4.5
+@export var stamina_recovery : float = 4.5
+
 @onready var stamina_cooldown = $StaminaCooldown
 
 var stamina:
@@ -43,4 +44,4 @@ func _on_stamina_cooldown_timeout() -> void:
 
 func _on_stamina_timer_timeout() -> void:
 	if stamina_regen == true:
-		stamina += stamina_regen_val
+		stamina += stamina_recovery

@@ -1,4 +1,4 @@
-class_name HealthComponent extends Node2D
+class_name EnemyHealthComponent extends Node2D
 
 
 @export var hitbox_component = Area2D
@@ -13,9 +13,9 @@ func _ready() -> void:
 
 func damage(dmg):
 	health -= dmg
-	parent.anim.hurt()
 
 	if health <= 0:
+		parent.drop_comp.drop_item()
 		death()
 
 func regen(heal):
@@ -26,4 +26,5 @@ func regen(heal):
 		health = max_health
 
 func death():
+	parent.queue_free()
 	print("game over!")

@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/StateMachine/Player States/dash.gd" id="6_flf3p"]
 [ext_resource type="FontFile" uid="uid://bk8mctsdvhnwp" path="res://Textures/Fonts/PublicPixel.ttf" id="6_jnx77"]
 [ext_resource type="PackedScene" uid="uid://jyjftkxrxfs1" path="res://Scenes/Component Scenes/Player Components/input_component.tscn" id="7_25bbb"]
-[ext_resource type="Script" uid="uid://dthlcyeqac1qw" path="res://Scripts/options.gd" id="7_uxymp"]
+[ext_resource type="Script" uid="uid://dthlcyeqac1qw" path="res://Scripts/Player/Leveling/options.gd" id="7_uxymp"]
 [ext_resource type="PackedScene" uid="uid://jpwg0x2qy572" path="res://Scenes/Component Scenes/Player Components/movement_component.tscn" id="8_cueqf"]
 [ext_resource type="Texture2D" uid="uid://dqb4cdtajqubb" path="res://Textures/Player/Keisha-Sheet.png" id="13_01b8d"]
 [ext_resource type="Script" uid="uid://c6lnff5grxip1" path="res://Scripts/StateMachine/Player States/hurt.gd" id="13_xccyk"]
@@ -281,6 +281,16 @@ one_shot = true
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("5_fcmex")]
 hitbox_component = NodePath("../HitboxComponent")
+
+[node name="Health" type="TextureProgressBar" parent="HealthComponent"]
+unique_name_in_owner = true
+offset_left = -12.0
+offset_top = 20.0
+offset_right = 628.3881
+offset_bottom = 33.0
+scale = Vector2(0.03676668, 0.31372535)
+texture_under = ExtResource("4_yt1oc")
+texture_progress = ExtResource("5_jnx77")
 
 [node name="StaminaComponent" parent="." node_paths=PackedStringArray("dash_state") instance=ExtResource("6_25bbb")]
 dash_state = NodePath("../StateMachine/Dash")

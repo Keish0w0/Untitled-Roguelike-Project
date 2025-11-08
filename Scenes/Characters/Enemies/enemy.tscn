@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://dlyuwr6hvswq1" path="res://Scripts/Components/General Components/animation_component.gd" id="2_67xvd"]
 [ext_resource type="Texture2D" uid="uid://dwfg71y7dv26a" path="res://Textures/Placeholder Sprites/HoloSprites/Shrimp-Sheet.png" id="3_67xvd"]
 [ext_resource type="PackedScene" uid="uid://dvnbf8jvk1qwj" path="res://Scenes/Component Scenes/Enemy Components/enemy_hitbox_component.tscn" id="3_rmt0q"]
-[ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Component Scenes/General Components/health_component.tscn" id="4_lij3b"]
 [ext_resource type="Script" uid="uid://dw6b11qrvupr5" path="res://Scripts/Enemy/enemy_sprite.gd" id="4_rmt0q"]
+[ext_resource type="PackedScene" uid="uid://bphcism2q7d0e" path="res://Scenes/Component Scenes/Enemy Components/enemy_health_component.tscn" id="6_lij3b"]
 [ext_resource type="Script" uid="uid://c3mbm2ip276cf" path="res://Scripts/Components/Enemy Components/drops_component.gd" id="7_lij3b"]
 
 [sub_resource type="Animation" id="Animation_ku28h"]
@@ -77,14 +77,14 @@ shape = SubResource("CapsuleShape2D_udfau")
 debug_color = Color(1, 1, 1, 0.41960785)
 
 [node name="EnemyHitboxComponent" parent="." node_paths=PackedStringArray("health_component", "animation_component") instance=ExtResource("3_rmt0q")]
-health_component = NodePath("../HealthComponent")
+health_component = NodePath("../EnemyHealthComponent")
 animation_component = NodePath("../AnimationComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="EnemyHitboxComponent"]
 shape = SubResource("RectangleShape2D_rmt0q")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("4_lij3b")]
+[node name="EnemyHealthComponent" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("6_lij3b")]
 hitbox_component = NodePath("../EnemyHitboxComponent")
 
 [node name="DropsComponent" type="Node2D" parent="."]

@@ -1,6 +1,6 @@
 class_name EnemyHitboxComponent extends Area2D
 
-@export var health_component: HealthComponent
+@export var health_component: EnemyHealthComponent
 @export var animation_component: AnimationComponent
 @onready var hitbox = $Hitbox
 

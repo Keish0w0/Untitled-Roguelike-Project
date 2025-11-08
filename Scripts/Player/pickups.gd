@@ -1,7 +1,7 @@
 extends Area2D
 
 var direction : Vector2
-var speed : float = 150
+var speed : float = 200
 
 @export var type : Pickups
 @export var player_ref : CharacterBody2D :

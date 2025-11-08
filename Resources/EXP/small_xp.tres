@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Experience" load_steps=3 format=3 uid="uid://dlbahttkixg73"]
 
 [ext_resource type="Texture2D" uid="uid://hwkcv0xcjimr" path="res://Textures/Player/xp_orb_test.png" id="1_r2s7l"]
-[ext_resource type="Script" uid="uid://ypp4yingod84" path="res://Scripts/experience.gd" id="2_brbk8"]
+[ext_resource type="Script" uid="uid://ypp4yingod84" path="res://Scripts/Player/Leveling/experience.gd" id="2_brbk8"]
 
 [resource]
 script = ExtResource("2_brbk8")
