@@ -1,14 +1,10 @@
 class_name InputComponent extends Node2D
 
-signal attack
 signal aim
 
 var movement = Vector2.ZERO
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("attack"):
-		emit_signal("attack")
-	
 	if Input.is_action_just_pressed("aim"):
 		emit_signal("aim")
 

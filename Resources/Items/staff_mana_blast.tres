@@ -1,9 +1,48 @@
-[gd_resource type="Resource" script_class="SingleShot" load_steps=5 format=3 uid="uid://tjxo435f2tl8"]
+[gd_resource type="Resource" script_class="SingleShot" load_steps=12 format=3 uid="uid://tjxo435f2tl8"]
 
 [ext_resource type="Texture2D" uid="uid://x3ugj3cijh3v" path="res://Textures/Player/Weapons/Icons/Mistwinter-Staff_Icon.png" id="1_tnod4"]
 [ext_resource type="PackedScene" uid="uid://elafthlw6dmw" path="res://Scenes/Item Functions/projectile.tscn" id="2_gcxg5"]
 [ext_resource type="Script" uid="uid://dckkvpq6n8rn5" path="res://Scripts/Items/single_shot.gd" id="3_kqr6e"]
 [ext_resource type="Texture2D" uid="uid://bqn1btuxgw0i4" path="res://Textures/Player/Weapons/Mistwinter_Staff.png" id="4_hv5hs"]
+[ext_resource type="Script" uid="uid://4m2847mluth8" path="res://Scripts/Resources/Upgrades/upgrade.gd" id="5_gcxg5"]
+[ext_resource type="Script" uid="uid://b0poi1rpvmn1p" path="res://Scripts/Resources/Upgrades/projectile_upgrade.gd" id="6_kqr6e"]
+
+[sub_resource type="Resource" id="Resource_hv5hs"]
+script = ExtResource("6_kqr6e")
+damage = 2.0
+description = "+2 Damage"
+metadata/_custom_type_script = "uid://b0poi1rpvmn1p"
+
+[sub_resource type="Resource" id="Resource_fbqje"]
+script = ExtResource("6_kqr6e")
+cooldown = -0.1
+description = "-0.1 Cooldown"
+metadata/_custom_type_script = "uid://b0poi1rpvmn1p"
+
+[sub_resource type="Resource" id="Resource_8bhuk"]
+script = ExtResource("6_kqr6e")
+pierce_limit = 1.0
+damage = 2.0
+description = "+1 Piercing
++2 Damage"
+metadata/_custom_type_script = "uid://b0poi1rpvmn1p"
+
+[sub_resource type="Resource" id="Resource_oveul"]
+script = ExtResource("6_kqr6e")
+speed = 100.0
+cooldown = -0.2
+description = "+50% Projectile Speed
++0.2 Cooldown"
+metadata/_custom_type_script = "uid://b0poi1rpvmn1p"
+
+[sub_resource type="Resource" id="Resource_2lwpp"]
+script = ExtResource("6_kqr6e")
+damage = 3.0
+cooldown = -0.3
+description = "+3 Damage
+-0.3 Cooldown
+"
+metadata/_custom_type_script = "uid://b0poi1rpvmn1p"
 
 [resource]
 script = ExtResource("3_kqr6e")
@@ -13,6 +52,7 @@ icon = ExtResource("1_tnod4")
 damage = 4.0
 cooldown = 1.0
 speed = 300.0
-piercing = 0.1
+pierce_limit = 1.0
 type = "staff"
+upgrades = Array[ExtResource("5_gcxg5")]([SubResource("Resource_hv5hs"), SubResource("Resource_fbqje"), SubResource("Resource_8bhuk"), SubResource("Resource_oveul"), SubResource("Resource_2lwpp")])
 metadata/_custom_type_script = "uid://dckkvpq6n8rn5"

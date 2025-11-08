@@ -12,6 +12,7 @@ var level : int = 0:
 	set(value): 
 		level = value
 		%Level.text = "LV " + str(value)
+		%Options.show_option()
 
 func _process(_delta) -> void:
 	check_xp()

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=5 format=3 uid="uid://cya3skon0amuf"]
 
 [ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Resources/enemy_type.gd" id="1_ojp5l"]
-[ext_resource type="Script" uid="uid://cpbt4bdlfwp8q" path="res://Scripts/pickup_resource.gd" id="1_sfnpg"]
+[ext_resource type="Script" uid="uid://cpbt4bdlfwp8q" path="res://Scripts/Resources/pickup_resource.gd" id="1_sfnpg"]
 [ext_resource type="Resource" uid="uid://dlbahttkixg73" path="res://Resources/EXP/small_xp.tres" id="2_siua0"]
 [ext_resource type="Texture2D" uid="uid://bhwfhsiw808oe" path="res://Textures/Placeholder Sprites/HoloSprites/Hungry_Takodachi-Sheet.png" id="2_w6xcv"]
 
