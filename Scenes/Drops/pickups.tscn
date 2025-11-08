@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d22idllptixji"]
 
 [ext_resource type="Script" uid="uid://blvoor5hv610a" path="res://Scripts/pickups.gd" id="1_kmqwj"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kmqwj"]
-size = Vector2(10, 10)
+[ext_resource type="Texture2D" uid="uid://hwkcv0xcjimr" path="res://Textures/Player/xp_orb_test.png" id="2_5xrv2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t247h"]
 
@@ -13,7 +11,7 @@ collision_mask = 10
 script = ExtResource("1_kmqwj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_kmqwj")
+texture = ExtResource("2_5xrv2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_t247h")
