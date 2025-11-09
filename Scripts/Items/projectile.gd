@@ -9,10 +9,6 @@ var pierce_count : float = 0
 var pierce_limit : float = 1
 var crit : bool
 
-func _ready() -> void:
-	if player_ref != null:
-		crit = critical(player_ref.crit_chance)
-
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 
@@ -26,18 +22,9 @@ func _on_body_entered(body: Node2D) -> void:
 		if crit: 
 			damage *= 1.5
 			print("CRITICAL HIT!")
-		body.hitbox.take_damage(damage, crit)
+		body.hitbox.take_damage(damage)
 		body.knockback = direction * 50
 
 func _on_screen_exited() -> void:
 	await get_tree().create_timer(5).timeout
 	queue_free()
-
-func critical(crit_chance: float) -> bool:
-	var random_roll = randf() 
-	print(random_roll)
-
-	if random_roll < crit_chance:
-		return true
-	else:
-		return false

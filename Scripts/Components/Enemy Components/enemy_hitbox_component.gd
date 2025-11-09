@@ -5,13 +5,29 @@ class_name EnemyHitboxComponent extends Area2D
 @onready var hitbox : CollisionShape2D = $Hitbox
 @onready var parent : CharacterBody2D = $".."
 
-func take_damage(damage, is_crit):
+var crit : bool
+
+func take_damage(damage):
+	var dmg = damage
+	crit = critical(parent.player_ref.crit_chance)
+	if crit: 
+			dmg *= 1.5
+	
 	animation_component.hit_flash()
-	parent.damage_popup(damage, is_crit)
-	health_component.damage(damage)
+	parent.damage_popup(dmg, crit)
+	health_component.damage(dmg)
 
 func disable_collision():
 	hitbox.set_deferred("disabled", true)
 
 func enable_collision():
 	hitbox.set_deferred("disabled", false)
+
+func critical(crit_chance: float) -> bool:
+	var random_roll = randf() 
+	print(random_roll)
+
+	if random_roll < crit_chance:
+		return true
+	else:
+		return false
