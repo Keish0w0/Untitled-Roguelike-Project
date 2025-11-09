@@ -312,6 +312,15 @@ show_percentage = false
 [node name="XPComponent" type="Node2D" parent="."]
 script = ExtResource("15_hy8lp")
 
+[node name="Magnet" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_hy8lp")
+debug_color = Color(1, 1, 1, 0.41960785)
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_ajo0r")
 initial_state = NodePath("Idle")
@@ -334,20 +343,11 @@ one_shot = true
 [node name="Hurt" type="Node" parent="StateMachine"]
 script = ExtResource("13_xccyk")
 
-[node name="Magnet" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
-position = Vector2(0, 5)
-shape = SubResource("CircleShape2D_hy8lp")
-debug_color = Color(1, 1, 1, 0.41960785)
-
 [connection signal="body_entered" from="HitboxComponent" to="HitboxComponent" method="_on_body_entered"]
 [connection signal="took_damage" from="HitboxComponent" to="StateMachine/Idle" method="_took_damage"]
 [connection signal="took_damage" from="HitboxComponent" to="StateMachine/Running" method="_took_damage"]
 [connection signal="took_damage" from="HitboxComponent" to="StateMachine/Dash" method="_took_damage"]
 [connection signal="timeout" from="HitboxComponent/DamageCooldown" to="HitboxComponent" method="_on_damage_cooldown_timeout"]
 [connection signal="aim" from="InputComponent" to="." method="_on_aim"]
-[connection signal="timeout" from="StateMachine/Dash/DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]
 [connection signal="area_entered" from="Magnet" to="XPComponent" method="_on_magnet_area_entered"]
+[connection signal="timeout" from="StateMachine/Dash/DashCooldown" to="StateMachine/Dash" method="_dash_cooldown_timeout"]

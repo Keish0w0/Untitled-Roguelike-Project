@@ -5,9 +5,9 @@ class_name EnemyHitboxComponent extends Area2D
 @onready var hitbox : CollisionShape2D = $Hitbox
 @onready var parent : CharacterBody2D = $".."
 
-func take_damage(damage):
+func take_damage(damage, is_crit):
 	animation_component.hit_flash()
-	parent.damage_popup(damage)
+	parent.damage_popup(damage, is_crit)
 	health_component.damage(damage)
 
 func disable_collision():

@@ -50,11 +50,15 @@ func knockback_update(delta):
 	if collider:
 		collider.get_collider().knockback = (collider.get_collider().global_position - global_position).normalized() * 35
 
-func damage_popup(amount):
+func damage_popup(amount, is_crit):
 	var int_value : int = int(amount)
 	var popup = damage_popup_node.instantiate()
+	var crit = is_crit
 	popup.text = str(int_value)
 	popup.position = position + Vector2(-50, -25)
+	if crit:
+		popup.set("theme_override_colors/font_color",Color(1.0, 0.925, 0.675, 1.0))
+		popup.set("theme_override_colors/font_outline_color",Color(0.910, 0.625, 0.0, 1.0))
 	get_tree().current_scene.add_child(popup)
 
 func flip_sprite():

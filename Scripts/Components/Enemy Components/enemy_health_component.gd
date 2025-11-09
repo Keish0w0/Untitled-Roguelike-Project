@@ -27,4 +27,3 @@ func regen(heal):
 
 func death():
 	parent.queue_free()
-	print("game over!")
