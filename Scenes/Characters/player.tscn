@@ -316,7 +316,8 @@ script = ExtResource("15_hy8lp")
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
+[node name="Magnet" type="CollisionShape2D" parent="Magnet"]
+unique_name_in_owner = true
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_hy8lp")
 debug_color = Color(1, 1, 1, 0.41960785)

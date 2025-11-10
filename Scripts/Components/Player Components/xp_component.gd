@@ -18,8 +18,8 @@ func _process(_delta) -> void:
 	check_xp()
 
 func gain_xp(amount):
-	XP += amount
-	total_XP += amount
+	XP += amount * player_ref.exp_gain
+	total_XP += amount * player_ref.exp_gain
 
 func check_xp():
 	if XP >= %XP.max_value:

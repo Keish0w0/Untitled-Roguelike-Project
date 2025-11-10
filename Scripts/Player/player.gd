@@ -7,9 +7,12 @@ class_name Player extends CharacterBody2D
 @export var dash : float = 2.5
 var dash_speed : float = max_speed * dash
 
-@export_subgroup("Player Stats")
-@export var crit_chance : float = 0.05
-@export var exp_gain : float = 1 
+var crit_chance : float = 0.05
+var exp_gain : float = 1 
+var magnet : float = 0:
+	set(value):
+		magnet = value
+		%Magnet.shape.radius = 50 + value
 
 ##DASH
 @onready var dash_stamina : float = 25
