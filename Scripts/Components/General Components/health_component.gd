@@ -2,7 +2,7 @@ class_name HealthComponent extends Node2D
 
 
 @export var hitbox_component = Area2D
-@onready var parent : CharacterBody2D = $".."
+@onready var player : CharacterBody2D = $".."
 
 ##HEALTH
 var health : float:
@@ -10,23 +10,24 @@ var health : float:
 		health = max(value, 0)
 		%Health.value = value
 
-var max_health : float = 100 :
+var max_health : float:
 	set(value):
 		max_health = value
 		%Health.max_value = value
 
-@export var health_recovery : float = 0.25
+@onready var health_recovery : float = player.health_recovery
 @onready var health_cooldown = $HealthCooldown
 
 var health_regen : bool = false
 
 func _ready() -> void:
+	max_health = player.max_health
 	health = max_health
 
 func damage(dmg):
 	health -= dmg
 	health_regen = false
-	parent.anim.hurt()
+	player.anim.hurt()
 	
 	health_cooldown.start()
 

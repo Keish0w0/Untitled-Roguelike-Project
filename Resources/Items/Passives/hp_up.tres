@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=7 format=3 uid="uid://nhx22hjnpm22"]
+
+[ext_resource type="Texture2D" uid="uid://d01icgyukey52" path="res://Textures/Placeholder Sprites/Max_HP_Up_Icon.webp" id="1_okdko"]
+[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://passive_item.gd" id="2_5a7t7"]
+[ext_resource type="Script" uid="uid://cswlpqurkox7s" path="res://Scripts/stats.gd" id="3_sq8x8"]
+
+[sub_resource type="Resource" id="Resource_2me8u"]
+script = ExtResource("3_sq8x8")
+description = "+20 HP"
+max_health = 20.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_umn7n"]
+script = ExtResource("3_sq8x8")
+description = "+35 HP"
+max_health = 35.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_7kkus"]
+script = ExtResource("3_sq8x8")
+description = "+45 HP"
+max_health = 45.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[resource]
+script = ExtResource("2_5a7t7")
+upgrades = Array[ExtResource("3_sq8x8")]([SubResource("Resource_2me8u"), SubResource("Resource_umn7n"), SubResource("Resource_7kkus")])
+title = "HP Up"
+icon = ExtResource("1_okdko")
+metadata/_custom_type_script = "uid://cadjekwwk3n73"

@@ -10,7 +10,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="HealthTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="HealthCooldown" to="." method="_on_health_cooldown_timeout"]

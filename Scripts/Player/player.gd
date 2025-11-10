@@ -1,18 +1,22 @@
 class_name Player extends CharacterBody2D
 
-@export_subgroup("Player Movement")
+##PlayerStats
+@export var max_health : float = 100
+@export var health_recovery : float = 1
 @export var max_speed : float  = 125.0
+@export var stamina_recovery : float = 2
+var crit_chance : float = 0.05
+var exp_gain : float = 1 
+var pickup_radius : float = 0:
+	set(value):
+		pickup_radius = value
+		%Magnet.shape.radius = 50 + value
+
+@export_subgroup("Player Movement")
 @export var accel : float  = 6.0
 @export var friction : float  = 8.0
 @export var dash : float = 2.5
 var dash_speed : float = max_speed * dash
-
-var crit_chance : float = 0.05
-var exp_gain : float = 1 
-var magnet : float = 0:
-	set(value):
-		magnet = value
-		%Magnet.shape.radius = 50 + value
 
 ##DASH
 @onready var dash_stamina : float = 25

@@ -4,8 +4,8 @@ class_name StaminaComponent extends Node2D
 @export var dash_state: Dash
 
 ##STAMINA
-@export var max_stamina : float = 100
-@export var stamina_recovery : float = 2
+@onready var max_stamina : float = 100
+@onready var stamina_recovery : float = player.stamina_recovery
 
 @onready var stamina_cooldown = $StaminaCooldown
 

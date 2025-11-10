@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/Player/player.gd" id="1_o0f8b"]
 [ext_resource type="PackedScene" uid="uid://bbkpc0bufcyqi" path="res://Scenes/Item Functions/slot.tscn" id="2_h1n2f"]
 [ext_resource type="Script" uid="uid://d2660oluygvli" path="res://Scripts/Components/Player Components/player_animation_component.gd" id="2_xccyk"]
-[ext_resource type="Resource" uid="uid://tjxo435f2tl8" path="res://Resources/Items/staff_mana_blast.tres" id="3_h1n2f"]
+[ext_resource type="Resource" uid="uid://tjxo435f2tl8" path="res://Resources/Items/Weapons/staff_mana_blast.tres" id="3_h1n2f"]
 [ext_resource type="Script" uid="uid://d0d7iiw73mo4c" path="res://Scripts/StateMachine/state_machine.gd" id="4_ajo0r"]
 [ext_resource type="PackedScene" uid="uid://dw85gk414jek3" path="res://Scenes/Component Scenes/Player Components/hitbox_component.tscn" id="4_fcmex"]
 [ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/StateMachine/Player States/idle.gd" id="4_ons1q"]
