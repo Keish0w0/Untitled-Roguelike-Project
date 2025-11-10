@@ -1,4 +1,4 @@
-class_name SingleShot extends Items
+class_name SingleShot extends Weapons
 
 func shoot(source, staff, target, scene_tree):
 	if target == null:

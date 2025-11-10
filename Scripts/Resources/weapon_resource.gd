@@ -1,4 +1,4 @@
-class_name Items extends Resource
+class_name Weapons extends Resource
 
 @export var title : String
 @export var texture : Texture2D

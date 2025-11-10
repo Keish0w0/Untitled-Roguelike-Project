@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-@export var items : HBoxContainer
+@export var weapons : HBoxContainer
 var OptionSlot = preload("res://Scenes/Item Functions/option_slot.tscn")
 
 func _ready() -> void:
@@ -11,25 +11,25 @@ func close_option():
 	get_tree().paused = false
 
 func get_available_items():
-	var item_resource = []
-	for item in items.get_children():
-		if item.item != null:
-			item_resource.append(item.item)
-	return item_resource
+	var weapon_resource = []
+	for weapon in weapons.get_children():
+		if weapon.weapon != null:
+			weapon_resource.append(weapon.weapon)
+	return weapon_resource
 
 func show_option():
-	var items_available = get_available_items()
-	if items_available.size() == 0:
+	var weapons_available = get_available_items()
+	if weapons_available.size() == 0:
 		return
 	
 	for slot in get_children():
 		slot.queue_free()
 	
 	var option_size = 0
-	for item in items_available:
-		if item.is_upgradable():
+	for weapon in weapons_available:
+		if weapon.is_upgradable():
 			var option_slot = OptionSlot.instantiate()
-			option_slot.item = item
+			option_slot.weapon = weapon
 			add_child(option_slot)
 			option_size += 1
 	

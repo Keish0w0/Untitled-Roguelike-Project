@@ -1,8 +1,8 @@
 class_name WeaponAim extends Node2D
  
-@onready var item : Items = $"../UI/Weapons/Slot1".item:
+@onready var weapon : Weapons = $"../UI/Weapons/Slot1".weapon:
 	set(value):
-		item = value
+		weapon = value
 		$Sprite2D.texture = value.texture
 
 @onready var start : Marker2D = $Start
