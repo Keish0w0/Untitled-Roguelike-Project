@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=9 format=3 uid="uid://nhx22hjnpm22"]
+
+[ext_resource type="Texture2D" uid="uid://d01icgyukey52" path="res://Textures/Placeholder Sprites/Max_HP_Up_Icon.webp" id="1_6cxva"]
+[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://passive_item.gd" id="2_y4716"]
+[ext_resource type="Script" uid="uid://cswlpqurkox7s" path="res://Scripts/stats.gd" id="3_ep8gy"]
+
+[sub_resource type="Resource" id="Resource_okdko"]
+script = ExtResource("3_ep8gy")
+description = "Increase Max HP by 20% per level. (Max 100%)"
+max_health = 20.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_5a7t7"]
+script = ExtResource("3_ep8gy")
+description = "Increase Max HP by 20% per level. (Max 100%)"
+max_health = 20.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_sq8x8"]
+script = ExtResource("3_ep8gy")
+description = "Increase Max HP by 20% per level. (Max 100%)"
+max_health = 20.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_2me8u"]
+script = ExtResource("3_ep8gy")
+description = "Increase Max HP by 20% per level. (Max 100%)"
+max_health = 20.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_umn7n"]
+script = ExtResource("3_ep8gy")
+description = "Increase Max HP by 20% per level. (Max Level)"
+max_health = 20.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[resource]
+script = ExtResource("2_y4716")
+upgrades = Array[ExtResource("3_ep8gy")]([SubResource("Resource_okdko"), SubResource("Resource_5a7t7"), SubResource("Resource_sq8x8"), SubResource("Resource_2me8u"), SubResource("Resource_umn7n")])
+title = "Max HP +"
+icon = ExtResource("1_6cxva")
+metadata/_custom_type_script = "uid://cadjekwwk3n73"

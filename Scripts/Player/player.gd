@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 ##PlayerStats
 @export var max_health : float = 100
-@export var health_recovery : float = 1
+@export var health_recovery : float = 0
 @export var max_speed : float  = 125.0
 @export var stamina_recovery : float = 2
 var crit_chance : float = 0.05

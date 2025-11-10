@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=9 format=3 uid="uid://bbgmir4fu4mdh"]
+
+[ext_resource type="Texture2D" uid="uid://nf1ci5iwdcdt" path="res://Textures/Placeholder Sprites/Regeneration_Icon.webp" id="1_bkjrp"]
+[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://passive_item.gd" id="2_4450i"]
+[ext_resource type="Script" uid="uid://cswlpqurkox7s" path="res://Scripts/stats.gd" id="3_g6lkq"]
+
+[sub_resource type="Resource" id="Resource_glbih"]
+script = ExtResource("3_g6lkq")
+description = "Heals 1 HP every 5 seconds. +1 HP per level."
+health_recovery = 1.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_3rt16"]
+script = ExtResource("3_g6lkq")
+description = "Heals 2 HP every 5 seconds."
+health_recovery = 1.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_mjsi3"]
+script = ExtResource("3_g6lkq")
+description = "Heals 3 HP every 5 seconds."
+health_recovery = 1.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_lwv6k"]
+script = ExtResource("3_g6lkq")
+description = "Heals 4 HP every 5 seconds."
+health_recovery = 1.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_viy6i"]
+script = ExtResource("3_g6lkq")
+description = "Heals 5 HP every 5 seconds."
+health_recovery = 1.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[resource]
+script = ExtResource("2_4450i")
+upgrades = Array[ExtResource("3_g6lkq")]([SubResource("Resource_glbih"), SubResource("Resource_3rt16"), SubResource("Resource_mjsi3"), SubResource("Resource_lwv6k"), SubResource("Resource_viy6i")])
+title = "Regeneration +"
+icon = ExtResource("1_bkjrp")
+metadata/_custom_type_script = "uid://cadjekwwk3n73"
