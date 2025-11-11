@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_w6ck0"]
 script = ExtResource("3_o2vxn")
-description = "Increase base pick up range by 10% per level."
+description = "Increase base pick up range by 10% per level. (Max Level)"
 pickup_radius = 10.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 

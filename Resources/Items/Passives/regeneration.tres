@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_viy6i"]
 script = ExtResource("3_g6lkq")
-description = "Heals 5 HP every 5 seconds."
+description = "Heals 5 HP every 5 seconds. (Max Level)"
 health_recovery = 1.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 

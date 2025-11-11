@@ -6,25 +6,25 @@
 
 [sub_resource type="Resource" id="Resource_okdko"]
 script = ExtResource("3_ep8gy")
-description = "Increase Max HP by 20% per level. (Max 100%)"
+description = "Increase Max HP by 20% per level."
 max_health = 20.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_5a7t7"]
 script = ExtResource("3_ep8gy")
-description = "Increase Max HP by 20% per level. (Max 100%)"
+description = "Increase Max HP by 20% per level."
 max_health = 20.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_sq8x8"]
 script = ExtResource("3_ep8gy")
-description = "Increase Max HP by 20% per level. (Max 100%)"
+description = "Increase Max HP by 20% per level."
 max_health = 20.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_2me8u"]
 script = ExtResource("3_ep8gy")
-description = "Increase Max HP by 20% per level. (Max 100%)"
+description = "Increase Max HP by 20% per level."
 max_health = 20.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
