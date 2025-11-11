@@ -43,7 +43,7 @@ vertical_alignment = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 show_behind_parent = true
-custom_minimum_size = Vector2(315, 40)
+custom_minimum_size = Vector2(325, 40)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

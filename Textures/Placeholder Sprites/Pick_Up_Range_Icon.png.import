@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceu73rug663ht"
-path="res://.godot/imported/Pick_Up_Range_Icon.webp-b31cf61e1fdecd982c49adbeb4979ea6.ctex"
+uid="uid://dgn8mckxyilox"
+path="res://.godot/imported/Pick_Up_Range_Icon.png-858125cfc1db50dd01fe3364cd9de3ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Placeholder Sprites/Pick_Up_Range_Icon.webp"
-dest_files=["res://.godot/imported/Pick_Up_Range_Icon.webp-b31cf61e1fdecd982c49adbeb4979ea6.ctex"]
+source_file="res://Textures/Placeholder Sprites/Pick_Up_Range_Icon.png"
+dest_files=["res://.godot/imported/Pick_Up_Range_Icon.png-858125cfc1db50dd01fe3364cd9de3ab.ctex"]
 
 [params]
 

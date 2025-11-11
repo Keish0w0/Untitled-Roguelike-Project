@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PassiveItem" load_steps=9 format=3 uid="uid://bbgmir4fu4mdh"]
 
 [ext_resource type="Texture2D" uid="uid://nf1ci5iwdcdt" path="res://Textures/Placeholder Sprites/Regeneration_Icon.webp" id="1_bkjrp"]
-[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://passive_item.gd" id="2_4450i"]
+[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://Scripts/passive_item.gd" id="2_4450i"]
 [ext_resource type="Script" uid="uid://cswlpqurkox7s" path="res://Scripts/stats.gd" id="3_g6lkq"]
 
 [sub_resource type="Resource" id="Resource_glbih"]

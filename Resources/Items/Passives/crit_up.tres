@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=9 format=3 uid="uid://d0cuxk7qfp1ub"]
+
+[ext_resource type="Texture2D" uid="uid://dybccfg4qcx5e" path="res://Textures/Placeholder Sprites/Crit_Up_Icon.webp" id="1_lq4x4"]
+[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://Scripts/passive_item.gd" id="2_lq4x4"]
+[ext_resource type="Script" uid="uid://cswlpqurkox7s" path="res://Scripts/stats.gd" id="3_afjqa"]
+
+[sub_resource type="Resource" id="Resource_1g0ye"]
+script = ExtResource("3_afjqa")
+description = "Increase critical hit chance
+by 2% per level."
+crit_chance = 0.02
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_37cx0"]
+script = ExtResource("3_afjqa")
+description = "Increase critical hit chance
+by 2% per level."
+crit_chance = 0.02
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_njmvy"]
+script = ExtResource("3_afjqa")
+description = "Increase critical hit chance
+by 2% per level."
+crit_chance = 0.02
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_t1qtx"]
+script = ExtResource("3_afjqa")
+description = "Increase critical hit chance
+by 2% per level."
+crit_chance = 0.02
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_lpoph"]
+script = ExtResource("3_afjqa")
+description = "Increase critical hit chance
+by 2% per level."
+crit_chance = 0.02
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[resource]
+script = ExtResource("2_lq4x4")
+upgrades = Array[ExtResource("3_afjqa")]([SubResource("Resource_1g0ye"), SubResource("Resource_37cx0"), SubResource("Resource_njmvy"), SubResource("Resource_t1qtx"), SubResource("Resource_lpoph")])
+title = "Crit Up"
+icon = ExtResource("1_lq4x4")
+metadata/_custom_type_script = "uid://cadjekwwk3n73"

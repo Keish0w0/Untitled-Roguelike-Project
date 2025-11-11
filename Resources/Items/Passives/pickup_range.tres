@@ -1,36 +1,41 @@
 [gd_resource type="Resource" script_class="PassiveItem" load_steps=9 format=3 uid="uid://caryu278cw3tk"]
 
-[ext_resource type="Texture2D" uid="uid://ceu73rug663ht" path="res://Textures/Placeholder Sprites/Pick_Up_Range_Icon.webp" id="1_x8mbq"]
-[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://passive_item.gd" id="2_pcmb0"]
+[ext_resource type="Texture2D" uid="uid://dgn8mckxyilox" path="res://Textures/Placeholder Sprites/Pick_Up_Range_Icon.png" id="1_x8mbq"]
+[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://Scripts/passive_item.gd" id="2_pcmb0"]
 [ext_resource type="Script" uid="uid://cswlpqurkox7s" path="res://Scripts/stats.gd" id="3_o2vxn"]
 
 [sub_resource type="Resource" id="Resource_2idwi"]
 script = ExtResource("3_o2vxn")
-description = "Increase base pick up range by 10% per level."
+description = "Increase base pick up range
+by 10% per level."
 pickup_radius = 10.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_883k2"]
 script = ExtResource("3_o2vxn")
-description = "Increase base pick up range by 10% per level."
+description = "Increase base pick up range
+by 10% per level."
 pickup_radius = 10.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_8brnf"]
 script = ExtResource("3_o2vxn")
-description = "Increase base pick up range by 10% per level."
+description = "Increase base pick up range
+by 10% per level."
 pickup_radius = 10.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_7glyv"]
 script = ExtResource("3_o2vxn")
-description = "Increase base pick up range by 10% per level."
+description = "Increase base pick up range
+by 10% per level."
 pickup_radius = 10.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_w6ck0"]
 script = ExtResource("3_o2vxn")
-description = "Increase base pick up range by 10% per level. (Max Level)"
+description = "Increase base pick up range
+by 10% per level. (Max Level)"
 pickup_radius = 10.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 

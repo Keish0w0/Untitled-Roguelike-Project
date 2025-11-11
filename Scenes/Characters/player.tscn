@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://x84vm6f4d0q3"]
+[gd_scene load_steps=34 format=3 uid="uid://x84vm6f4d0q3"]
 
 [ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/Player/player.gd" id="1_o0f8b"]
 [ext_resource type="PackedScene" uid="uid://bbkpc0bufcyqi" path="res://Scenes/Item Functions/slot.tscn" id="2_h1n2f"]
@@ -6,9 +6,11 @@
 [ext_resource type="Resource" uid="uid://tjxo435f2tl8" path="res://Resources/Items/Weapons/staff_mana_blast.tres" id="3_h1n2f"]
 [ext_resource type="Script" uid="uid://d0d7iiw73mo4c" path="res://Scripts/StateMachine/state_machine.gd" id="4_ajo0r"]
 [ext_resource type="PackedScene" uid="uid://dw85gk414jek3" path="res://Scenes/Component Scenes/Player Components/hitbox_component.tscn" id="4_fcmex"]
+[ext_resource type="PackedScene" uid="uid://dnfl4fe2vrw0p" path="res://Scenes/Item Functions/passive_slot.tscn" id="4_fepmq"]
 [ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/StateMachine/Player States/idle.gd" id="4_ons1q"]
 [ext_resource type="Texture2D" uid="uid://cplrjvvtgc3w8" path="res://Textures/UI/xp_under.png" id="4_yt1oc"]
 [ext_resource type="Script" uid="uid://3t1qmjx36l7w" path="res://Scripts/StateMachine/Player States/running.gd" id="5_ajo0r"]
+[ext_resource type="Resource" uid="uid://dg0lxexxheoga" path="res://Resources/Items/Passives/exp_gain.tres" id="5_ddhxa"]
 [ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Component Scenes/Player Components/health_component.tscn" id="5_fcmex"]
 [ext_resource type="Texture2D" uid="uid://2p8jfwsxf6hb" path="res://Textures/UI/xp_progress.png" id="5_jnx77"]
 [ext_resource type="PackedScene" uid="uid://7nkymcduj65m" path="res://Scenes/Component Scenes/Player Components/stamina_component.tscn" id="6_25bbb"]
@@ -184,20 +186,36 @@ script = ExtResource("1_o0f8b")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Weapons" type="HBoxContainer" parent="UI"]
-offset_left = 4.0
+offset_left = 5.0
 offset_top = 15.0
-offset_right = 78.0
+offset_right = 79.0
 offset_bottom = 37.0
 
 [node name="Slot1" parent="UI/Weapons" instance=ExtResource("2_h1n2f")]
 layout_mode = 2
 tooltip_text = "qag"
-weapon = ExtResource("3_h1n2f")
+item = ExtResource("3_h1n2f")
 
 [node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_h1n2f")]
 layout_mode = 2
 
 [node name="Slot3" parent="UI/Weapons" instance=ExtResource("2_h1n2f")]
+layout_mode = 2
+
+[node name="PassiveItems" type="HBoxContainer" parent="UI"]
+offset_left = 5.0
+offset_top = 42.0
+offset_right = 79.0
+offset_bottom = 64.0
+
+[node name="PassiveSlot" parent="UI/PassiveItems" instance=ExtResource("4_fepmq")]
+layout_mode = 2
+item = ExtResource("5_ddhxa")
+
+[node name="PassiveSlot2" parent="UI/PassiveItems" instance=ExtResource("4_fepmq")]
+layout_mode = 2
+
+[node name="PassiveSlot3" parent="UI/PassiveItems" instance=ExtResource("4_fepmq")]
 layout_mode = 2
 
 [node name="XP" type="TextureProgressBar" parent="UI"]
@@ -221,7 +239,7 @@ theme_override_font_sizes/font_size = 8
 text = "LV 0"
 horizontal_alignment = 2
 
-[node name="Options" type="VBoxContainer" parent="UI" node_paths=PackedStringArray("weapons")]
+[node name="Options" type="VBoxContainer" parent="UI" node_paths=PackedStringArray("weapons", "passive_items")]
 unique_name_in_owner = true
 process_mode = 3
 anchors_preset = 8
@@ -237,6 +255,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_uxymp")
 weapons = NodePath("../Weapons")
+passive_items = NodePath("../PassiveItems")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3

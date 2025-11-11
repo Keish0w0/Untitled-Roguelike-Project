@@ -5,7 +5,7 @@ class_name Player extends CharacterBody2D
 @export var health_recovery : float = 0
 @export var max_speed : float  = 125.0
 @export var stamina_recovery : float = 2
-var crit_chance : float = 0.05
+var crit_chance : float = 0.06
 var exp_gain : float = 1 
 var pickup_radius : float = 0:
 	set(value):

@@ -1,36 +1,42 @@
 [gd_resource type="Resource" script_class="PassiveItem" load_steps=9 format=3 uid="uid://dg0lxexxheoga"]
 
 [ext_resource type="Texture2D" uid="uid://cjuvxxadrn7uh" path="res://Textures/Placeholder Sprites/EXP_Gain_Up_Icon.webp" id="1_7t3ng"]
-[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://passive_item.gd" id="2_5j7od"]
+[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://Scripts/passive_item.gd" id="2_5j7od"]
 [ext_resource type="Script" uid="uid://cswlpqurkox7s" path="res://Scripts/stats.gd" id="3_yjjjc"]
 
 [sub_resource type="Resource" id="Resource_f32x3"]
 script = ExtResource("3_yjjjc")
-description = "Increases the amount of EXP gained by 5% per level."
+description = "Increases the amount of EXP
+gained by 5% per level."
 exp_gain = 0.05
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_2a7tr"]
 script = ExtResource("3_yjjjc")
-description = "Increases the amount of EXP gained by 5% per level."
+description = "Increases the amount of EXP
+gained by 5% per level."
 exp_gain = 0.05
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_b87yu"]
 script = ExtResource("3_yjjjc")
-description = "Increases the amount of EXP gained by 5% per level."
+description = "Increases the amount of EXP
+gained by 5% per level."
 exp_gain = 0.05
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_dftg1"]
 script = ExtResource("3_yjjjc")
-description = "Increases the amount of EXP gained by 5% per level."
+description = "Increases the amount of EXP
+gained by 5% per level."
 exp_gain = 0.05
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_nwrqb"]
 script = ExtResource("3_yjjjc")
-description = "Increases the amount of EXP gained by 5% per level. (Max Level)"
+description = "Increases the amount of EXP
+gained by 5% per level.
+(Max Level)"
 exp_gain = 0.05
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 

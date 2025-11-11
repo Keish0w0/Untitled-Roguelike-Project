@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PassiveItem" load_steps=9 format=3 uid="uid://nhx22hjnpm22"]
 
 [ext_resource type="Texture2D" uid="uid://d01icgyukey52" path="res://Textures/Placeholder Sprites/Max_HP_Up_Icon.webp" id="1_6cxva"]
-[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://passive_item.gd" id="2_y4716"]
+[ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://Scripts/passive_item.gd" id="2_y4716"]
 [ext_resource type="Script" uid="uid://cswlpqurkox7s" path="res://Scripts/stats.gd" id="3_ep8gy"]
 
 [sub_resource type="Resource" id="Resource_okdko"]

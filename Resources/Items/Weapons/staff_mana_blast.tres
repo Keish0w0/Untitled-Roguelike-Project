@@ -46,13 +46,13 @@ metadata/_custom_type_script = "uid://b0poi1rpvmn1p"
 
 [resource]
 script = ExtResource("3_kqr6e")
-title = "Mistwinter Staff"
 texture = ExtResource("4_hv5hs")
-icon = ExtResource("1_tnod4")
 damage = 4.0
 cooldown = 1.0
 speed = 300.0
 pierce_limit = 1.0
 type = "staff"
 upgrades = Array[ExtResource("5_gcxg5")]([SubResource("Resource_hv5hs"), SubResource("Resource_fbqje"), SubResource("Resource_8bhuk"), SubResource("Resource_oveul"), SubResource("Resource_2lwpp")])
+title = "Mistwinter Staff"
+icon = ExtResource("1_tnod4")
 metadata/_custom_type_script = "uid://dckkvpq6n8rn5"
