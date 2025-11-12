@@ -25,7 +25,6 @@ func enable_collision():
 
 func critical(crit_chance: float) -> bool:
 	var random_roll = randf() 
-	print(random_roll)
 
 	if random_roll < crit_chance:
 		return true

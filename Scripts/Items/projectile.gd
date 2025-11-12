@@ -21,7 +21,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.has_node("EnemyHitboxComponent"):
 		if crit: 
 			damage *= 1.5
-			print("CRITICAL HIT!")
 		body.hitbox.take_damage(damage)
 		body.knockback = direction * 50
 

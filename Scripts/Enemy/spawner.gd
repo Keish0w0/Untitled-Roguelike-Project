@@ -8,6 +8,7 @@ extends Node2D
 
 @export var enemy_types: Array[EnemyResource]
 
+var time = 0
 var minute: int
 var second: int:
 	set(value):
@@ -16,10 +17,10 @@ var second: int:
 			second -= 60
 			minute += 1
 
-func spawn(pos: Vector2):
+func spawn(pos, type):
 	var enemy_instance = enemy.instantiate()
 	
-	enemy_instance.type = enemy_types[min(minute, enemy_types.size()-1)]
+	enemy_instance.type = enemy_types[type-1]
 	enemy_instance.position = pos
 	enemy_instance.player_ref = player_ref
 	
@@ -56,15 +57,27 @@ func get_random_position():
 func circle_pattern() -> Vector2:
 	return player_ref.position + distance * Vector2.RIGHT.rotated(randf_range(0, 2 * PI))
 
-func amount(number: int = 1):
+func amount(number, type):
 	for i in range(number):
-		spawn(get_random_position())
+		spawn(get_random_position(), type)
 
 func _on_timer_timeout() -> void:
 	second += 1
+	time += 1
 	%Clock.text = str(minute).lpad(2, '0') + ":" + str(second).lpad(2, '0') 
-	amount((minute % 10)+1) 
+	
+	var spawns = enemy_types
+	for i in spawns:
+		if time >= i.time_start and time <= i.time_end:
+			if i.spawn_delay_counter < i.spawn_delay:
+				i.spawn_delay_counter += 1
+			else:
+				i.spawn_delay_counter = 0
+				amount(i.spawn_count + 1, i.type_id)
 
 func _on_pattern_timeout() -> void:
 	for i in range(50):
-		spawn(circle_pattern())
+		spawn(circle_pattern(), minute)
+		
+
+	

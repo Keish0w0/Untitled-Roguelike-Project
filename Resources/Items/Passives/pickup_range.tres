@@ -4,44 +4,44 @@
 [ext_resource type="Script" uid="uid://cadjekwwk3n73" path="res://Scripts/passive_item.gd" id="2_pcmb0"]
 [ext_resource type="Script" uid="uid://cswlpqurkox7s" path="res://Scripts/stats.gd" id="3_o2vxn"]
 
-[sub_resource type="Resource" id="Resource_2idwi"]
+[sub_resource type="Resource" id="Resource_8brnf"]
 script = ExtResource("3_o2vxn")
 description = "Increase base pick up range
-by 10% per level."
-pickup_radius = 10.0
+by 5% per level."
+pickup_radius = 5.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_883k2"]
 script = ExtResource("3_o2vxn")
 description = "Increase base pick up range
-by 10% per level."
-pickup_radius = 10.0
-metadata/_custom_type_script = "uid://cswlpqurkox7s"
-
-[sub_resource type="Resource" id="Resource_8brnf"]
-script = ExtResource("3_o2vxn")
-description = "Increase base pick up range
-by 10% per level."
-pickup_radius = 10.0
+by 5% per level."
+pickup_radius = 5.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_7glyv"]
 script = ExtResource("3_o2vxn")
 description = "Increase base pick up range
-by 10% per level."
-pickup_radius = 10.0
+by 5% per level."
+pickup_radius = 5.0
+metadata/_custom_type_script = "uid://cswlpqurkox7s"
+
+[sub_resource type="Resource" id="Resource_x8mbq"]
+script = ExtResource("3_o2vxn")
+description = "Increase base pick up range
+by 5% per level."
+pickup_radius = 5.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [sub_resource type="Resource" id="Resource_w6ck0"]
 script = ExtResource("3_o2vxn")
 description = "Increase base pick up range
-by 10% per level. (Max Level)"
-pickup_radius = 10.0
+by 5% per level.  (Max Level)"
+pickup_radius = 5.0
 metadata/_custom_type_script = "uid://cswlpqurkox7s"
 
 [resource]
 script = ExtResource("2_pcmb0")
-upgrades = Array[ExtResource("3_o2vxn")]([SubResource("Resource_2idwi"), SubResource("Resource_883k2"), SubResource("Resource_8brnf"), SubResource("Resource_7glyv"), SubResource("Resource_w6ck0")])
+upgrades = Array[ExtResource("3_o2vxn")]([SubResource("Resource_8brnf"), SubResource("Resource_883k2"), SubResource("Resource_7glyv"), SubResource("Resource_x8mbq"), SubResource("Resource_w6ck0")])
 title = null
 icon = ExtResource("1_x8mbq")
 metadata/_custom_type_script = "uid://cadjekwwk3n73"

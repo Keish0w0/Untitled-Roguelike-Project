@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://o06t7d74cyr4" path="res://Scripts/StateMachine/Player States/idle.gd" id="4_ons1q"]
 [ext_resource type="Texture2D" uid="uid://cplrjvvtgc3w8" path="res://Textures/UI/xp_under.png" id="4_yt1oc"]
 [ext_resource type="Script" uid="uid://3t1qmjx36l7w" path="res://Scripts/StateMachine/Player States/running.gd" id="5_ajo0r"]
-[ext_resource type="Resource" uid="uid://dg0lxexxheoga" path="res://Resources/Items/Passives/exp_gain.tres" id="5_ddhxa"]
+[ext_resource type="Resource" uid="uid://caryu278cw3tk" path="res://Resources/Items/Passives/pickup_range.tres" id="5_ddhxa"]
 [ext_resource type="PackedScene" uid="uid://bgqg2fu3y66ej" path="res://Scenes/Component Scenes/Player Components/health_component.tscn" id="5_fcmex"]
 [ext_resource type="Texture2D" uid="uid://2p8jfwsxf6hb" path="res://Textures/UI/xp_progress.png" id="5_jnx77"]
 [ext_resource type="PackedScene" uid="uid://7nkymcduj65m" path="res://Scenes/Component Scenes/Player Components/stamina_component.tscn" id="6_25bbb"]
