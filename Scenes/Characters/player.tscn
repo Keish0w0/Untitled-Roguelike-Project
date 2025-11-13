@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://x84vm6f4d0q3"]
+[gd_scene load_steps=36 format=3 uid="uid://x84vm6f4d0q3"]
 
 [ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/Player/player.gd" id="1_o0f8b"]
 [ext_resource type="PackedScene" uid="uid://bbkpc0bufcyqi" path="res://Scenes/Item Functions/slot.tscn" id="2_h1n2f"]
@@ -17,7 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://ltkvyoh80b4g" path="res://Scenes/Item Functions/weapon_aim.tscn" id="6_dxpk4"]
 [ext_resource type="Script" uid="uid://qqfq3rgxpffk" path="res://Scripts/StateMachine/Player States/dash.gd" id="6_flf3p"]
 [ext_resource type="FontFile" uid="uid://bk8mctsdvhnwp" path="res://Textures/Fonts/PublicPixel.ttf" id="6_jnx77"]
+[ext_resource type="Resource" uid="uid://dg0lxexxheoga" path="res://Resources/Items/Passives/exp_gain.tres" id="6_v8iml"]
 [ext_resource type="PackedScene" uid="uid://jyjftkxrxfs1" path="res://Scenes/Component Scenes/Player Components/input_component.tscn" id="7_25bbb"]
+[ext_resource type="Resource" uid="uid://d0cuxk7qfp1ub" path="res://Resources/Items/Passives/crit_up.tres" id="7_ojpki"]
 [ext_resource type="Script" uid="uid://dthlcyeqac1qw" path="res://Scripts/Player/Leveling/options.gd" id="7_uxymp"]
 [ext_resource type="PackedScene" uid="uid://jpwg0x2qy572" path="res://Scenes/Component Scenes/Player Components/movement_component.tscn" id="8_cueqf"]
 [ext_resource type="Texture2D" uid="uid://dqb4cdtajqubb" path="res://Textures/Player/Keisha-Sheet.png" id="13_01b8d"]
@@ -214,9 +216,11 @@ item = ExtResource("5_ddhxa")
 
 [node name="PassiveSlot2" parent="UI/PassiveItems" instance=ExtResource("4_fepmq")]
 layout_mode = 2
+item = ExtResource("6_v8iml")
 
 [node name="PassiveSlot3" parent="UI/PassiveItems" instance=ExtResource("4_fepmq")]
 layout_mode = 2
+item = ExtResource("7_ojpki")
 
 [node name="XP" type="TextureProgressBar" parent="UI"]
 unique_name_in_owner = true

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=5 format=3 uid="uid://brxmv5hugph8x"]
+
+[ext_resource type="Script" uid="uid://cpbt4bdlfwp8q" path="res://Scripts/Resources/pickup_resource.gd" id="1_tgdx6"]
+[ext_resource type="Resource" uid="uid://dlbahttkixg73" path="res://Resources/EXP/small_xp.tres" id="2_iilwx"]
+[ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Resources/enemy_type.gd" id="3_i2dbq"]
+[ext_resource type="Texture2D" uid="uid://dmngbyjpi3mwr" path="res://Textures/Placeholder Sprites/HoloSprites/Shrimp_2x-Sheet.png" id="4_fpxf1"]
+
+[resource]
+script = ExtResource("3_i2dbq")
+title = "Elite Shrimp"
+texture = ExtResource("4_fpxf1")
+health = 600.0
+damage = 6.0
+speed = 50.0
+drops = Array[ExtResource("1_tgdx6")]([ExtResource("2_iilwx")])
+time_start = 120
+time_end = 121
+metadata/_custom_type_script = "uid://j3jutiir7d85"

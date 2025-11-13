@@ -62,6 +62,7 @@ func amount(number, type):
 		spawn(get_random_position(), type)
 
 func _on_timer_timeout() -> void:
+	print(minute)
 	second += 1
 	time += 1
 	%Clock.text = str(minute).lpad(2, '0') + ":" + str(second).lpad(2, '0') 
@@ -77,7 +78,5 @@ func _on_timer_timeout() -> void:
 
 func _on_pattern_timeout() -> void:
 	for i in range(50):
-		spawn(circle_pattern(), minute)
 		
-
-	
+		spawn(circle_pattern(), minute + 1)

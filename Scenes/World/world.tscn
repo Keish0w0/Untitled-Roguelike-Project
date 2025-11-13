@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cpk7qppnvi43h"]
+[gd_scene load_steps=18 format=4 uid="uid://cpk7qppnvi43h"]
 
 [ext_resource type="Texture2D" uid="uid://dkis0ppr4ja5b" path="res://Textures/Placeholder Sprites/placeholders/tilesets/grass.png" id="1_vadfg"]
 [ext_resource type="PackedScene" uid="uid://bigqx64ccche" path="res://Scenes/Behaviors/spawner.tscn" id="1_yp2ti"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cmtih05jrao8s" path="res://Textures/Placeholder Sprites/placeholders/tilesets/plains.png" id="2_l1hd3"]
 [ext_resource type="Script" uid="uid://j3jutiir7d85" path="res://Scripts/Resources/enemy_type.gd" id="5_fcotr"]
 [ext_resource type="Resource" uid="uid://t5mb1okeuybq" path="res://Resources/Enemies/shrimp.tres" id="6_y0d6x"]
+[ext_resource type="Resource" uid="uid://brxmv5hugph8x" path="res://Resources/Enemies/elite_shrimp.tres" id="7_0ph6x"]
 [ext_resource type="Resource" uid="uid://7cvhk7mpvt01" path="res://Resources/Enemies/deadbeat.tres" id="7_ugf0j"]
 [ext_resource type="Resource" uid="uid://cya3skon0amuf" path="res://Resources/Enemies/takodachi.tres" id="8_0ph6x"]
 [ext_resource type="Resource" uid="uid://mudf6ltlun8d" path="res://Resources/Enemies/chicken.tres" id="9_ugf0j"]
@@ -146,4 +147,4 @@ z_index = 1
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("1_yp2ti")]
 player_ref = NodePath("../Player")
-enemy_types = Array[ExtResource("5_fcotr")]([ExtResource("6_y0d6x"), ExtResource("7_ugf0j"), ExtResource("8_0ph6x"), ExtResource("9_ugf0j"), ExtResource("10_0ph6x")])
+enemy_types = Array[ExtResource("5_fcotr")]([ExtResource("6_y0d6x"), ExtResource("7_ugf0j"), ExtResource("8_0ph6x"), ExtResource("9_ugf0j"), ExtResource("10_0ph6x"), ExtResource("7_0ph6x")])

@@ -16,5 +16,4 @@ drops = Array[ExtResource("1_0p0gk")]([ExtResource("2_k6l1v")])
 type_id = 1
 time_end = 180
 spawn_count = 1
-spawn_delay = 1
 metadata/_custom_type_script = "uid://j3jutiir7d85"

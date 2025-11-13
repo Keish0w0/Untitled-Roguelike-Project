@@ -72,7 +72,6 @@ libraries = {
 }
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_udfau")
 debug_color = Color(1, 1, 1, 0.41960785)
 
