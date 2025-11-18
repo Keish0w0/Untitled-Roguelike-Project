@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://x84vm6f4d0q3"]
+[gd_scene load_steps=37 format=3 uid="uid://x84vm6f4d0q3"]
 
 [ext_resource type="Script" uid="uid://b0lqbwlgaiyek" path="res://Scripts/Player/player.gd" id="1_o0f8b"]
 [ext_resource type="PackedScene" uid="uid://bbkpc0bufcyqi" path="res://Scenes/Item Functions/slot.tscn" id="2_h1n2f"]
@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://d0cuxk7qfp1ub" path="res://Resources/Items/Passives/crit_up.tres" id="7_ojpki"]
 [ext_resource type="Script" uid="uid://dthlcyeqac1qw" path="res://Scripts/Player/Leveling/options.gd" id="7_uxymp"]
 [ext_resource type="PackedScene" uid="uid://jpwg0x2qy572" path="res://Scenes/Component Scenes/Player Components/movement_component.tscn" id="8_cueqf"]
+[ext_resource type="Texture2D" uid="uid://b63gmpu5mv7qq" path="res://Textures/Complete_UI_Book_Styles_Pack_Free_v1.0/01_TravelBookLite/Sprites/UI_TravelBook_Frame01a.png" id="12_ojpki"]
 [ext_resource type="Texture2D" uid="uid://dqb4cdtajqubb" path="res://Textures/Player/Keisha-Sheet.png" id="13_01b8d"]
 [ext_resource type="Script" uid="uid://c6lnff5grxip1" path="res://Scripts/StateMachine/Player States/hurt.gd" id="13_xccyk"]
 [ext_resource type="Script" uid="uid://imoql1q6sqgt" path="res://Scripts/Components/Player Components/xp_component.gd" id="15_hy8lp"]
@@ -260,6 +261,26 @@ grow_vertical = 2
 script = ExtResource("7_uxymp")
 weapons = NodePath("../Weapons")
 passive_items = NodePath("../PassiveItems")
+
+[node name="Chest" type="NinePatchRect" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ojpki")
+patch_margin_left = 2
+patch_margin_top = 3
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/Chest"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3
